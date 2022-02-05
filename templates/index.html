@@ -8,11 +8,16 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <title>Sistema recomendador</title>
   </head>
   <body>
+    {% set n_players = 5 %}
     <section class="section">
-      <div class="container is-max-desktop">
+      <div class="container">
         <h1 class="title">Sistema Recomendador</h1>
         <p class="subtitle">
           ¡Sistema recomendador para crear tu equipo perfecto de fútbol! Ideal
@@ -25,7 +30,49 @@
             <li>Juan Carlos Jaramillo</li>
             <li>Sebastián Rendón</li>
           </ul>
-          <form></form>
+          <div class="card">
+            <div class="card-content">
+              <form action="/recommend-player" method="post">
+                <p class="subtitle py-2">Agrega 5 jugadores de tu plantilla</p>
+                {% for p in range(1,6) %}
+                <div class="field">
+                  <div class="control">
+                    <label for="player{{p}}" class="label"
+                      >Jugador #{{ p }}</label
+                    >
+                    <div class="select is-fullwidth">
+                      <select id="player{{p}}" name="player{{p}}">
+                        {% for player in players %}
+                        <option value="{{ player }}">{{ player }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <hr />
+                <div class="field">
+                  <label for="position" class="label"
+                    >Posición que buscas</label
+                  >
+                  <div class="control">
+                    <div class="select is-fullwidth">
+                      <select id="position" name="position">
+                        {% for pos in positions %}
+                        <option value="{{ pos }}">{{ pos }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <button type="submit" class="button is-primary">
+                    Recomendar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

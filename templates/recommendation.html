@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <title>Sistema recomendador</title>
+  </head>
+  <body>
+    {% set n_players = 5 %}
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Tu recomendación:</h1>
+        <div class="content">
+          <div class="card">
+            <div class="card-content">
+              <p class="title is-2">
+                {{ recommended_player.label }} {% if recommended_player.value <
+                50 %}
+                <span class="tag is-danger is-large is-rounded"
+                  >{{ recommended_player.value }}</span
+                >
+                {% elif recommended_player.value < 75 %}
+                <span class="tag is-warning is-large is-rounded"
+                  >{{ recommended_player.value }}</span
+                >
+                {% else %}
+                <span class="tag is-success is-large is-rounded"
+                  >{{ recommended_player.value }}</span
+                >
+                {% endif %}
+              </p>
+              <p class="subtitle">
+                <b>{{ recommended_player.position }}</b>
+                en
+                <b>{{ recommended_player.club }}</b>
+              </p>
+              <div class="content">
+                <ul>
+                  <li>
+                    <span class="subtitle">
+                      Nació en <b>{{ recommended_player.country }}</b> {%
+                      autoescape false %}{{ recommended_player.flag }}{%
+                      endautoescape %}
+                    </span>
+                  </li>
+                  <li>
+                    <span class="subtitle">
+                      Su pie dominante es <b>{{ recommended_player.foot }}</b>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a href="/" class="card-footer-item">Volver</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
