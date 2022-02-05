@@ -1,12 +1,12 @@
-@prefix : <http:www.FCF.com/> .
+@prefix : <https://www.fcf.com/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http:www.FCF.com/> .
+@base <https://www.fcf.com/> .
 
-<http:www.FCF.com/> rdf:type owl:Ontology .
+<https://www.fcf.com/> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
@@ -169,6 +169,21 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                owl:ReflexiveProperty .
 
 
+###  http:www.FCF.com/has_birth_country
+<http:www.FCF.com/has_birth_country> rdf:type owl:ObjectProperty ;
+                                     rdfs:subPropertyOf owl:topObjectProperty ;
+                                     owl:inverseOf <http:www.FCF.com/is_birth_country_of> ;
+                                     rdfs:domain <http://www.FCF.com/Football_Player> ;
+                                     rdfs:range <http://www.FCF.com/Country> .
+
+
+###  http:www.FCF.com/is_birth_country_of
+<http:www.FCF.com/is_birth_country_of> rdf:type owl:ObjectProperty ;
+                                       rdfs:subPropertyOf owl:topObjectProperty ;
+                                       rdfs:domain <http://www.FCF.com/Country> ;
+                                       rdfs:range <http://www.FCF.com/Football_Player> .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -284,6 +299,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
                                <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
+                               <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
                                rdfs:label "Ansu Fati"@en .
 
 
@@ -322,6 +338,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                      <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
                                      <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                      <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
+                                     <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Portugal> ;
                                      rdfs:label "Bruno Fernandes"@en .
 
 
@@ -338,6 +355,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                   <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Roma> ;
                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
                                   rdfs:label "Carles Perez"@en .
 
 
@@ -374,6 +392,9 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 <http://www.FCF.com/Colombia> rdf:type owl:NamedIndividual ,
                                        <http://www.FCF.com/Country> ;
                               <http://www.FCF.com/is_country_of> <http://www.FCF.com/Medellín> ;
+                              <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Dorlan_Pabon> ,
+                                                                     <http://www.FCF.com/Felipe_Aguilar> ,
+                                                                     <http://www.FCF.com/Jarlan_Barrera> ;
                               rdfs:label "Colombia"@en .
 
 
@@ -383,6 +404,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                        <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
                                        <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                        <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                       <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Portugal> ;
                                        rdfs:label "Cristiano Ronaldo"@en .
 
 
@@ -401,6 +423,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                   <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
                                   rdfs:label "Dorlan Pabón"@en .
 
 
@@ -409,6 +432,10 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                      <http://www.FCF.com/Country> ;
                             <http://www.FCF.com/is_country_of> <http://www.FCF.com/Cataluña> ,
                                                                <http://www.FCF.com/Madrid> ;
+                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Ansu_Fati> ,
+                                                                   <http://www.FCF.com/Carles_Perez> ,
+                                                                   <http://www.FCF.com/Gerard_Pique> ,
+                                                                   <http://www.FCF.com/Pedri> ;
                             rdfs:label "Spain"@en .
 
 
@@ -469,6 +496,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                     <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
                                     <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                     <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
+                                    <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
                                     rdfs:label "Felipe Aguilar"@en .
 
 
@@ -497,6 +525,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 <http://www.FCF.com/Francia> rdf:type owl:NamedIndividual ,
                                       <http://www.FCF.com/Country> ;
                              <http://www.FCF.com/is_country_of> <http://www.FCF.com/Paris> ;
+                             <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Karim_Benzema> ;
                              rdfs:label "France"@en .
 
 
@@ -506,7 +535,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                   <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                                  rdfs:label "Gerad Piqué"@en .
+                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
+                                  rdfs:label "Gerard Piqué"@en .
 
 
 ###  http://www.FCF.com/Giuseppe_Meazza
@@ -531,6 +561,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                    <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
                                    <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                    <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
+                                   <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Inglaterra> ;
                                    rdfs:label "Harry Maguire"@en .
 
 
@@ -539,6 +570,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                          <http://www.FCF.com/Country> ;
                                 <http://www.FCF.com/is_country_of> <http://www.FCF.com/Londres> ,
                                                                    <http://www.FCF.com/Manchester> ;
+                                <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Harry_Maguire> ,
+                                                                       <http://www.FCF.com/Mason_Mount> ;
                                 rdfs:label "England"@en .
 
 
@@ -561,6 +594,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                      <http://www.FCF.com/Country> ;
                             <http://www.FCF.com/is_country_of> <http://www.FCF.com/Milan> ,
                                                                <http://www.FCF.com/Roma> ;
+                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Nicolas_Barella> ;
                             rdfs:label "Italy"@en .
 
 
@@ -577,7 +611,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                     <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
                                     <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
                                     <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                                    rdfs:label "Julian Barrera"@en .
+                                    <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
+                                    rdfs:label "Jarlan Barrera"@en .
 
 
 ###  http://www.FCF.com/Jesus_Maria_Pérez
@@ -621,6 +656,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                    <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
                                    <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                    <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                   <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Francia> ;
                                    rdfs:label "Karim Benzema"@en .
 
 
@@ -630,6 +666,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                   <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
+                                  <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Costa_Rica> ;
                                   rdfs:label "Keylor Navas"@en .
 
 
@@ -647,6 +684,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                       <http://www.FCF.com/has_club> <http://www.FCF.com/Inter_De_Milan> ;
                                       <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                       <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                      <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Argentina> ;
                                       rdfs:label "Lautaro Martínez"@en .
 
 
@@ -680,6 +718,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                   <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                  <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Argentina> ;
                                   rdfs:label "Lionel Messi"@en .
 
 
@@ -735,8 +774,9 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                              <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
                              <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
                              <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                             rdfs:label "Marcelo (footballer, born 1988)"@en ,
-                                        "Marcelo Vieira"@es .
+                             <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
+                             rdfs:label "Marcelo"@en ,
+                                        "Marcelo"@es .
 
 
 ###  http://www.FCF.com/Mason_Mount
@@ -745,6 +785,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                  <http://www.FCF.com/has_club> <http://www.FCF.com/Chelsea> ;
                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
+                                 <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Inglaterra> ;
                                  rdfs:label "Mason Mount"@en .
 
 
@@ -801,6 +842,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
                                <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                               <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
                                rdfs:label "Neymar"@en .
 
 
@@ -810,6 +852,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                      <http://www.FCF.com/has_club> <http://www.FCF.com/Inter_De_Milan> ;
                                      <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                      <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
+                                     <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Italia> ;
                                      rdfs:label "Nicolò Barella"@en .
 
 
@@ -872,6 +915,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                            <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
                            <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                            <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
+                           <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
                            rdfs:label "Pedri"@en .
 
 
@@ -933,6 +977,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                    <http://www.FCF.com/has_club> <http://www.FCF.com/Chelsea> ;
                                    <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
                                    <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                   <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Belgium> ;
                                    rdfs:label "Romelu Lukaku"@en .
 
 
@@ -986,6 +1031,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                 <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
                                 <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                 <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
+                                <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Germany> ;
                                 rdfs:label "Marc-André ter Stegen"@en .
 
 
@@ -1009,6 +1055,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                  <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
+                                 <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
                                  rdfs:label "Vinícius Júnior"@en .
 
 
@@ -1017,6 +1064,52 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                              <http://www.FCF.com/Football_Coach> ;
                                     <http://www.FCF.com/is_coach_of> <http://www.FCF.com/FC_Barcelona> ;
                                     rdfs:label "Xavi"@en .
+
+
+###  http:www.FCF.com/Argentina
+<http:www.FCF.com/Argentina> rdf:type owl:NamedIndividual ,
+                                      <http://www.FCF.com/Country> ;
+                             <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Lautaro_Martinez> ,
+                                                                    <http://www.FCF.com/Lionel_Messi> ;
+                             rdfs:label "Argentina"@en .
+
+
+###  http:www.FCF.com/Belgium
+<http:www.FCF.com/Belgium> rdf:type owl:NamedIndividual ,
+                                    <http://www.FCF.com/Country> ;
+                           <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Romelu_Lukaku> ;
+                           rdfs:label "Belgium"@en .
+
+
+###  http:www.FCF.com/Brazil
+<http:www.FCF.com/Brazil> rdf:type owl:NamedIndividual ,
+                                   <http://www.FCF.com/Country> ;
+                          <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Marcelo> ,
+                                                                 <http://www.FCF.com/Neymar_Jr> ,
+                                                                 <http://www.FCF.com/Vinicius_Jr> ;
+                          rdfs:label "Brazil"@en .
+
+
+###  http:www.FCF.com/Costa_Rica
+<http:www.FCF.com/Costa_Rica> rdf:type owl:NamedIndividual ,
+                                       <http://www.FCF.com/Country> ;
+                              <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Keylor_Navas> ;
+                              rdfs:label "Costa Rica"@en .
+
+
+###  http:www.FCF.com/Germany
+<http:www.FCF.com/Germany> rdf:type owl:NamedIndividual ,
+                                    <http://www.FCF.com/Country> ;
+                           <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Ter_Stegen> ;
+                           rdfs:label "Germany"@en .
+
+
+###  http:www.FCF.com/Portugal
+<http:www.FCF.com/Portugal> rdf:type owl:NamedIndividual ,
+                                     <http://www.FCF.com/Country> ;
+                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Bruno_Fernandez> ,
+                                                                   <http://www.FCF.com/Cristiano_Ronaldo> ;
+                            rdfs:label "Portugal"@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
