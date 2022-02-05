@@ -35,17 +35,45 @@
               <form action="/recommend-player" method="post">
                 <p class="subtitle py-2">Agrega 5 jugadores de tu plantilla</p>
                 {% for p in range(1,6) %}
-                <div class="field">
-                  <div class="control">
-                    <label for="player{{p}}" class="label"
-                      >Jugador #{{ p }}</label
-                    >
-                    <div class="select is-fullwidth">
-                      <select id="player{{p}}" name="player{{p}}">
-                        {% for player in players %}
-                        <option value="{{ player }}">{{ player }}</option>
-                        {% endfor %}
-                      </select>
+                <div class="columns">
+                  <div class="column is-two-thirds">
+                    <div class="field">
+                      <div class="control">
+                        <label for="player{{p}}" class="label"
+                          >Jugador #{{ p }}</label
+                        >
+                        <div class="select is-fullwidth">
+                          <select id="player{{p}}" name="player{{p}}" required>
+                            <option selected disabled>
+                              Selecciona un jugador, sin repetición
+                            </option>
+                            {% for player in players %}
+                            <option value="{{ player }}">{{ player }}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="control">
+                      <label for="valueplayer{{p}}" class="label"
+                        >Valoración del jugador #{{ p }}</label
+                      >
+                      <div class="select is-fullwidth">
+                        <select
+                          id="valueplayer{{p}}"
+                          name="valueplayer{{p}}"
+                          required
+                        >
+                          <option selected disabled>
+                            Selecciona un puntaje
+                          </option>
+                          {% for value in range(1, 11) %}
+                          <option value="{{ value }}">{{ value }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -57,7 +85,10 @@
                   >
                   <div class="control">
                     <div class="select is-fullwidth">
-                      <select id="position" name="position">
+                      <select id="position" name="position" required>
+                        <option selected disabled>
+                          Selecciona una posición
+                        </option>
                         {% for pos in positions %}
                         <option value="{{ pos }}">{{ pos }}</option>
                         {% endfor %}
