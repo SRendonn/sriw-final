@@ -29,8 +29,8 @@ def recommend_player():
                 players[player] = int(value)
 
         if position and len(players) == 5:
-            recommended_player = recommender.get_recommended_player(
+            recommended_player, value = recommender.get_recommended_player(
                 players=players, position=position)
-            return render_template('recommendation.html', recommended_player=recommended_player)
+            return render_template('recommendation.html', recommended_player=recommended_player, value=value)
         else:
             return redirect('/')

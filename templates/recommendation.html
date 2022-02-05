@@ -23,18 +23,17 @@
           <div class="card">
             <div class="card-content">
               <p class="title is-2">
-                {{ recommended_player.label }} {% if recommended_player.value <
-                50 %}
+                {{ recommended_player.label }} {% if value < 50 %}
                 <span class="tag is-danger is-large is-rounded"
-                  >{{ recommended_player.value }}</span
+                  >{{ value }}</span
                 >
-                {% elif recommended_player.value < 75 %}
+                {% elif value < 75 %}
                 <span class="tag is-warning is-large is-rounded"
-                  >{{ recommended_player.value }}</span
+                  >{{ value }}</span
                 >
                 {% else %}
                 <span class="tag is-success is-large is-rounded"
-                  >{{ recommended_player.value }}</span
+                  >{{ value }}</span
                 >
                 {% endif %}
               </p>

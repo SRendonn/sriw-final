@@ -51,12 +51,12 @@ def get_recommended_player(players, position):
 
     player = queries.get_player_by_name(choice(queries.get_players())[0])
 
-    return {
+    return ({
         'label': player[0][19:].replace('_', ' '),
         'position': player[1][19:].replace('_', ' '),
         'foot': player[2][19:].replace('_', ' '),
         'country': player[3][19:].replace('_', ' '),
         'club': player[4][19:].replace('_', ' '),
         'flag': country_codes[player[3][19:].replace('_', ' ')],
-        'value': randint(1, 100)
-    }
+    }, 69
+    )
