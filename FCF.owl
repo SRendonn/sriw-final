@@ -1,165 +1,165 @@
-@prefix : <https://www.fcf.com/> .
+@prefix : <http://www.FCF.com/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://www.fcf.com/> .
+@base <http://www.FCF.com/> .
 
-<https://www.fcf.com/> rdf:type owl:Ontology .
+<http://www.FCF.com/> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
 ###  http://www.FCF.com/has_city
-<http://www.FCF.com/has_city> rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf owl:topObjectProperty ;
-                              owl:inverseOf <http://www.FCF.com/is_city_of> ;
-                              rdfs:domain <http://www.FCF.com/Football_Club> ;
-                              rdfs:range <http://www.FCF.com/City> .
+:has_city rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :is_city_of ;
+          rdfs:domain :Football_Club ;
+          rdfs:range :City .
 
 
 ###  http://www.FCF.com/has_club
-<http://www.FCF.com/has_club> rdf:type owl:ObjectProperty ;
-                              rdfs:subPropertyOf owl:topObjectProperty ;
-                              owl:inverseOf <http://www.FCF.com/is_club_of> ;
-                              rdfs:domain <http://www.FCF.com/Football_Player> ;
-                              rdfs:range <http://www.FCF.com/Football_Club> .
+:has_club rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :is_club_of ;
+          rdfs:domain :Football_Player ;
+          rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/has_coach
-<http://www.FCF.com/has_coach> rdf:type owl:ObjectProperty ;
-                               rdfs:subPropertyOf owl:topObjectProperty ;
-                               owl:inverseOf <http://www.FCF.com/is_coach_of> ;
-                               rdfs:domain <http://www.FCF.com/Football_Club> ;
-                               rdfs:range <http://www.FCF.com/Football_Coach> .
+:has_coach rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           owl:inverseOf :is_coach_of ;
+           rdfs:domain :Football_Club ;
+           rdfs:range :Football_Coach .
 
 
 ###  http://www.FCF.com/has_country
-<http://www.FCF.com/has_country> rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf owl:topObjectProperty ;
-                                 owl:inverseOf <http://www.FCF.com/is_country_of> ;
-                                 rdfs:domain <http://www.FCF.com/City> ;
-                                 rdfs:range <http://www.FCF.com/Country> .
+:has_country rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :is_country_of ;
+             rdfs:domain :City ;
+             rdfs:range :Country .
 
 
 ###  http://www.FCF.com/has_league
-<http://www.FCF.com/has_league> rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                owl:inverseOf <http://www.FCF.com/is_league_of> ;
-                                rdfs:domain <http://www.FCF.com/Football_Club> ;
-                                rdfs:range <http://www.FCF.com/Football_League> .
+:has_league rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :is_league_of ;
+            rdfs:domain :Football_Club ;
+            rdfs:range :Football_League .
 
 
 ###  http://www.FCF.com/has_main_foot
-<http://www.FCF.com/has_main_foot> rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf owl:topObjectProperty ;
-                                   owl:inverseOf <http://www.FCF.com/is_main_foot_of> ;
-                                   rdfs:domain <http://www.FCF.com/Football_Player> ;
-                                   rdfs:range <http://www.FCF.com/Player_Main_Foot> .
+:has_main_foot rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :is_main_foot_of ;
+               rdfs:domain :Football_Player ;
+               rdfs:range :Player_Main_Foot .
 
 
 ###  http://www.FCF.com/has_personal
-<http://www.FCF.com/has_personal> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                  owl:inverseOf <http://www.FCF.com/is_personal_of> ;
-                                  rdfs:domain <http://www.FCF.com/Football_Club> ;
-                                  rdfs:range <http://www.FCF.com/Football_Personal> .
+:has_personal rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              owl:inverseOf :is_personal_of ;
+              rdfs:domain :Football_Club ;
+              rdfs:range :Football_Personal .
 
 
 ###  http://www.FCF.com/has_player
-<http://www.FCF.com/has_player> rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                owl:inverseOf <http://www.FCF.com/is_player_of> ;
-                                rdfs:domain <http://www.FCF.com/Football_Club> ;
-                                rdfs:range <http://www.FCF.com/Football_Player> .
+:has_player rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :is_player_of ;
+            rdfs:domain :Football_Club ;
+            rdfs:range :Football_Player .
 
 
 ###  http://www.FCF.com/has_position
-<http://www.FCF.com/has_position> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                  owl:inverseOf <http://www.FCF.com/is_position_of> ;
-                                  rdfs:domain <http://www.FCF.com/Football_Player> ;
-                                  rdfs:range <http://www.FCF.com/Player_Position> .
+:has_position rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              owl:inverseOf :is_position_of ;
+              rdfs:domain :Football_Player ;
+              rdfs:range :Player_Position .
 
 
 ###  http://www.FCF.com/has_stadium
-<http://www.FCF.com/has_stadium> rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf owl:topObjectProperty ;
-                                 owl:inverseOf <http://www.FCF.com/is_stadium_of> ;
-                                 rdfs:domain <http://www.FCF.com/Football_Club> ;
-                                 rdfs:range <http://www.FCF.com/Stadium> .
+:has_stadium rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :is_stadium_of ;
+             rdfs:domain :Football_Club ;
+             rdfs:range :Stadium .
 
 
 ###  http://www.FCF.com/is_city_of
-<http://www.FCF.com/is_city_of> rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                rdfs:domain <http://www.FCF.com/City> ;
-                                rdfs:range <http://www.FCF.com/Football_Club> .
+:is_city_of rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :City ;
+            rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/is_club_of
-<http://www.FCF.com/is_club_of> rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf owl:topObjectProperty ;
-                                rdfs:domain <http://www.FCF.com/Football_Club> ;
-                                rdfs:range <http://www.FCF.com/Football_Player> .
+:is_club_of rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :Football_Club ;
+            rdfs:range :Football_Player .
 
 
 ###  http://www.FCF.com/is_coach_of
-<http://www.FCF.com/is_coach_of> rdf:type owl:ObjectProperty ;
-                                 rdfs:subPropertyOf owl:topObjectProperty ;
-                                 rdfs:domain <http://www.FCF.com/Football_Coach> ;
-                                 rdfs:range <http://www.FCF.com/Football_Club> .
+:is_coach_of rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :Football_Coach ;
+             rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/is_country_of
-<http://www.FCF.com/is_country_of> rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf owl:topObjectProperty ;
-                                   rdfs:domain <http://www.FCF.com/Country> ;
-                                   rdfs:range <http://www.FCF.com/City> .
+:is_country_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Country ;
+               rdfs:range :City .
 
 
 ###  http://www.FCF.com/is_league_of
-<http://www.FCF.com/is_league_of> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                  rdfs:domain <http://www.FCF.com/Football_League> ;
-                                  rdfs:range <http://www.FCF.com/Football_Club> .
+:is_league_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Football_League ;
+              rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/is_main_foot_of
-<http://www.FCF.com/is_main_foot_of> rdf:type owl:ObjectProperty ;
-                                     rdfs:subPropertyOf owl:topObjectProperty ;
-                                     rdfs:domain <http://www.FCF.com/Player_Main_Foot> ;
-                                     rdfs:range <http://www.FCF.com/Football_Player> .
+:is_main_foot_of rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :Player_Main_Foot ;
+                 rdfs:range :Football_Player .
 
 
 ###  http://www.FCF.com/is_personal_of
-<http://www.FCF.com/is_personal_of> rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf owl:topObjectProperty ;
-                                    rdfs:domain <http://www.FCF.com/Football_Personal> ;
-                                    rdfs:range <http://www.FCF.com/Football_Club> .
+:is_personal_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Football_Personal ;
+                rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/is_player_of
-<http://www.FCF.com/is_player_of> rdf:type owl:ObjectProperty ;
-                                  rdfs:subPropertyOf owl:topObjectProperty ;
-                                  rdfs:domain <http://www.FCF.com/Football_Player> ;
-                                  rdfs:range <http://www.FCF.com/Football_Club> .
+:is_player_of rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Football_Player ;
+              rdfs:range :Football_Club .
 
 
 ###  http://www.FCF.com/is_position_of
-<http://www.FCF.com/is_position_of> rdf:type owl:ObjectProperty ;
-                                    rdfs:subPropertyOf owl:topObjectProperty ;
-                                    rdfs:domain <http://www.FCF.com/Player_Position> ;
-                                    rdfs:range <http://www.FCF.com/Football_Player> .
+:is_position_of rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain :Player_Position ;
+                rdfs:range :Football_Player .
 
 
 ###  http://www.FCF.com/is_stadium_of
-<http://www.FCF.com/is_stadium_of> rdf:type owl:ObjectProperty ;
-                                   rdfs:subPropertyOf owl:topObjectProperty ;
-                                   rdfs:domain <http://www.FCF.com/Stadium> ;
-                                   rdfs:range <http://www.FCF.com/Football_Club> .
+:is_stadium_of rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Stadium ;
+               rdfs:range :Football_Club .
 
 
 ###  http://www.w3.org/2002/07/owl#topObjectProperty
@@ -169,19 +169,19 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                                owl:ReflexiveProperty .
 
 
-###  http:www.FCF.com/has_birth_country
-<http:www.FCF.com/has_birth_country> rdf:type owl:ObjectProperty ;
+###  http://www.FCF.com/has_birth_country
+<http://www.FCF.com/has_birth_country> rdf:type owl:ObjectProperty ;
                                      rdfs:subPropertyOf owl:topObjectProperty ;
-                                     owl:inverseOf <http:www.FCF.com/is_birth_country_of> ;
-                                     rdfs:domain <http://www.FCF.com/Football_Player> ;
-                                     rdfs:range <http://www.FCF.com/Country> .
+                                     owl:inverseOf <http://www.FCF.com/is_birth_country_of> ;
+                                     rdfs:domain :Football_Player ;
+                                     rdfs:range :Country .
 
 
-###  http:www.FCF.com/is_birth_country_of
-<http:www.FCF.com/is_birth_country_of> rdf:type owl:ObjectProperty ;
+###  http://www.FCF.com/is_birth_country_of
+<http://www.FCF.com/is_birth_country_of> rdf:type owl:ObjectProperty ;
                                        rdfs:subPropertyOf owl:topObjectProperty ;
-                                       rdfs:domain <http://www.FCF.com/Country> ;
-                                       rdfs:range <http://www.FCF.com/Football_Player> .
+                                       rdfs:domain :Country ;
+                                       rdfs:range :Football_Player .
 
 
 #################################################################
@@ -189,89 +189,89 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 #################################################################
 
 ###  http://www.FCF.com/City
-<http://www.FCF.com/City> rdf:type owl:Class ;
-                          owl:disjointWith <http://www.FCF.com/Football_Player> ;
-                          rdfs:comment "Specify the origin of a club, its players and the corresponding league"^^xsd:string ;
-                          rdfs:label "City"^^xsd:string .
+:City rdf:type owl:Class ;
+      owl:disjointWith :Football_Player ;
+      rdfs:comment "Specify the origin of a club, its players and the corresponding league"^^xsd:string ;
+      rdfs:label "City"^^xsd:string .
 
 
 ###  http://www.FCF.com/Club_Medic
-<http://www.FCF.com/Club_Medic> rdf:type owl:Class ;
-                                owl:equivalentClass [ owl:intersectionOf ( <http://www.FCF.com/Football_Personal>
-                                                                           [ rdf:type owl:Class ;
-                                                                             owl:complementOf <http://www.FCF.com/Club_Prop>
-                                                                           ]
-                                                                         ) ;
-                                                      rdf:type owl:Class
-                                                    ] ;
-                                rdfs:subClassOf <http://www.FCF.com/Football_Personal> ;
-                                owl:disjointWith <http://www.FCF.com/Club_Prop> ;
-                                rdfs:comment "Soccer club staff in charge of providing health care services to players"^^xsd:string ;
-                                rdfs:label "Club_Medic"^^xsd:string .
+:Club_Medic rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :Football_Personal
+                                                       [ rdf:type owl:Class ;
+                                                         owl:complementOf :Club_Prop
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+            rdfs:subClassOf :Football_Personal ;
+            owl:disjointWith :Club_Prop ;
+            rdfs:comment "Soccer club staff in charge of providing health care services to players"^^xsd:string ;
+            rdfs:label "Club_Medic"^^xsd:string .
 
 
 ###  http://www.FCF.com/Club_Prop
-<http://www.FCF.com/Club_Prop> rdf:type owl:Class ;
-                               rdfs:subClassOf <http://www.FCF.com/Football_Personal> ;
-                               rdfs:comment "Soccer club staff in charge of providing care and preparation services for a team's equipment"^^xsd:string ;
-                               rdfs:label "Club_Prop"^^xsd:string .
+:Club_Prop rdf:type owl:Class ;
+           rdfs:subClassOf :Football_Personal ;
+           rdfs:comment "Soccer club staff in charge of providing care and preparation services for a team's equipment"^^xsd:string ;
+           rdfs:label "Club_Prop"^^xsd:string .
 
 
 ###  http://www.FCF.com/Country
-<http://www.FCF.com/Country> rdf:type owl:Class ;
-                             rdfs:comment "Country which the cities, leagues, football clubs, players and coaches belong"^^xsd:string ;
-                             rdfs:label "Country"^^xsd:string .
+:Country rdf:type owl:Class ;
+         rdfs:comment "Country which the cities, leagues, football clubs, players and coaches belong"^^xsd:string ;
+         rdfs:label "Country"^^xsd:string .
 
 
 ###  http://www.FCF.com/Football_Club
-<http://www.FCF.com/Football_Club> rdf:type owl:Class ;
-                                   rdfs:comment "It is the organization that plays for a league and has its staff of players, medics and props. This comes from a city and a country"^^xsd:string ;
-                                   rdfs:label "Football_Club"^^xsd:string .
+:Football_Club rdf:type owl:Class ;
+               rdfs:comment "It is the organization that plays for a league and has its staff of players, medics and props. This comes from a city and a country"^^xsd:string ;
+               rdfs:label "Football_Club"^^xsd:string .
 
 
 ###  http://www.FCF.com/Football_Coach
-<http://www.FCF.com/Football_Coach> rdf:type owl:Class ;
-                                    rdfs:comment "He is the coach of a soccer club, a fundamental part of it and for the participation of the team for the league"^^xsd:string ;
-                                    rdfs:label "Football_Coach"^^xsd:string .
+:Football_Coach rdf:type owl:Class ;
+                rdfs:comment "He is the coach of a soccer club, a fundamental part of it and for the participation of the team for the league"^^xsd:string ;
+                rdfs:label "Football_Coach"^^xsd:string .
 
 
 ###  http://www.FCF.com/Football_League
-<http://www.FCF.com/Football_League> rdf:type owl:Class ;
-                                     owl:disjointWith <http://www.FCF.com/Football_Player> ;
-                                     rdfs:comment "Sports association made up of the clubs that participate and compete with each other"^^xsd:string ;
-                                     rdfs:label "Football_League"^^xsd:string .
+:Football_League rdf:type owl:Class ;
+                 owl:disjointWith :Football_Player ;
+                 rdfs:comment "Sports association made up of the clubs that participate and compete with each other"^^xsd:string ;
+                 rdfs:label "Football_League"^^xsd:string .
 
 
 ###  http://www.FCF.com/Football_Personal
-<http://www.FCF.com/Football_Personal> rdf:type owl:Class ;
-                                       rdfs:comment "component of a soccer club in charge of providing services to soccer players"^^xsd:string ;
-                                       rdfs:label "Football_Personal"^^xsd:string .
+:Football_Personal rdf:type owl:Class ;
+                   rdfs:comment "component of a soccer club in charge of providing services to soccer players"^^xsd:string ;
+                   rdfs:label "Football_Personal"^^xsd:string .
 
 
 ###  http://www.FCF.com/Football_Player
-<http://www.FCF.com/Football_Player> rdf:type owl:Class ;
-                                     owl:disjointWith <http://www.FCF.com/Player_Position> ,
-                                                      <http://www.FCF.com/Stadium> ;
-                                     rdfs:comment "Soccer player who belongs to a soccer club and participates in a soccer league, they also have main foot and playing position"^^xsd:string ;
-                                     rdfs:label "Football_Player"^^xsd:string .
+:Football_Player rdf:type owl:Class ;
+                 owl:disjointWith :Player_Position ,
+                                  :Stadium ;
+                 rdfs:comment "Soccer player who belongs to a soccer club and participates in a soccer league, they also have main foot and playing position"^^xsd:string ;
+                 rdfs:label "Football_Player"^^xsd:string .
 
 
 ###  http://www.FCF.com/Player_Main_Foot
-<http://www.FCF.com/Player_Main_Foot> rdf:type owl:Class ;
-                                      rdfs:comment "Main foot which defines the player's style"^^xsd:string ;
-                                      rdfs:label "Player_Main_Foot"^^xsd:string .
+:Player_Main_Foot rdf:type owl:Class ;
+                  rdfs:comment "Main foot which defines the player's style"^^xsd:string ;
+                  rdfs:label "Player_Main_Foot"^^xsd:string .
 
 
 ###  http://www.FCF.com/Player_Position
-<http://www.FCF.com/Player_Position> rdf:type owl:Class ;
-                                     rdfs:comment "Player's main position defined by the soccer club"^^xsd:string ;
-                                     rdfs:label "Player_Position"^^xsd:string .
+:Player_Position rdf:type owl:Class ;
+                 rdfs:comment "Player's main position defined by the soccer club"^^xsd:string ;
+                 rdfs:label "Player_Position"^^xsd:string .
 
 
 ###  http://www.FCF.com/Stadium
-<http://www.FCF.com/Stadium> rdf:type owl:Class ;
-                             rdfs:comment "Sports stadium which houses two teams for competitive combat which participate in a soccer league. The stadium is part of a city"^^xsd:string ;
-                             rdfs:label "Stadium"^^xsd:string .
+:Stadium rdf:type owl:Class ;
+         rdfs:comment "Sports stadium which houses two teams for competitive combat which participate in a soccer league. The stadium is part of a city"^^xsd:string ;
+         rdfs:label "Stadium"^^xsd:string .
 
 
 #################################################################
@@ -279,836 +279,836 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 #################################################################
 
 ###  http://www.FCF.com/Alejandro_Restrepo
-<http://www.FCF.com/Alejandro_Restrepo> rdf:type owl:NamedIndividual ,
-                                                 <http://www.FCF.com/Football_Coach> ;
-                                        <http://www.FCF.com/is_coach_of> <http://www.FCF.com/Atletico_Nacional> ;
-                                        rdfs:label "Alejandro Restrepo"@en .
+:Alejandro_Restrepo rdf:type owl:NamedIndividual ,
+                             :Football_Coach ;
+                    :is_coach_of :Atletico_Nacional ;
+                    rdfs:label "Alejandro Restrepo"@en .
 
 
 ###  http://www.FCF.com/Anibal_Alamo
-<http://www.FCF.com/Anibal_Alamo> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Club_Medic> ,
-                                           <http://www.FCF.com/Football_Personal> ;
-                                  <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Atletico_Nacional> ;
-                                  rdfs:label "Anibal Alamo" .
+:Anibal_Alamo rdf:type owl:NamedIndividual ,
+                       :Club_Medic ,
+                       :Football_Personal ;
+              :is_personal_of :Atletico_Nacional ;
+              rdfs:label "Anibal Alamo" .
 
 
 ###  http://www.FCF.com/Ansu_Fati
-<http://www.FCF.com/Ansu_Fati> rdf:type owl:NamedIndividual ,
-                                        <http://www.FCF.com/Football_Player> ;
-                               <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
-                               <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                               <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
-                               <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
-                               rdfs:label "Ansu Fati"@en .
+:Ansu_Fati rdf:type owl:NamedIndividual ,
+                    :Football_Player ;
+           :has_club :FC_Barcelona ;
+           :has_main_foot :Right_Foot ;
+           :has_position :Goalkeeper ;
+           <http://www.FCF.com/has_birth_country> :España ;
+           rdfs:label "Ansu Fati"@en .
 
 
 ###  http://www.FCF.com/Atanasio_Girardo
-<http://www.FCF.com/Atanasio_Girardo> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Stadium> ;
-                                      <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/Atletico_Nacional> ;
-                                      rdfs:label "Atanasio Girardot Sports Complex"@en .
+:Atanasio_Girardo rdf:type owl:NamedIndividual ,
+                           :Stadium ;
+                  :is_stadium_of :Atletico_Nacional ;
+                  rdfs:label "Atanasio Girardot Sports Complex"@en .
 
 
 ###  http://www.FCF.com/Atletico_Nacional
-<http://www.FCF.com/Atletico_Nacional> rdf:type owl:NamedIndividual ,
-                                                <http://www.FCF.com/Football_Club> ;
-                                       <http://www.FCF.com/has_city> <http://www.FCF.com/Medellín> ;
-                                       <http://www.FCF.com/has_coach> <http://www.FCF.com/Alejandro_Restrepo> ;
-                                       <http://www.FCF.com/has_league> <http://www.FCF.com/Liga_Betplay_Dimayor> ;
-                                       <http://www.FCF.com/has_personal> <http://www.FCF.com/Anibal_Alamo> ,
-                                                                         <http://www.FCF.com/Ferran_Ares> ;
-                                       <http://www.FCF.com/has_stadium> <http://www.FCF.com/Atanasio_Girardo> ;
-                                       <http://www.FCF.com/is_club_of> <http://www.FCF.com/Dorlan_Pabon> ,
-                                                                       <http://www.FCF.com/Felipe_Aguilar> ,
-                                                                       <http://www.FCF.com/Jarlan_Barrera> ;
-                                       rdfs:label "Atlético Nacional"@en .
+:Atletico_Nacional rdf:type owl:NamedIndividual ,
+                            :Football_Club ;
+                   :has_city :Medellín ;
+                   :has_coach :Alejandro_Restrepo ;
+                   :has_league :Liga_Betplay_Dimayor ;
+                   :has_personal :Anibal_Alamo ,
+                                 :Ferran_Ares ;
+                   :has_stadium :Atanasio_Girardo ;
+                   :is_club_of :Dorlan_Pabon ,
+                               :Felipe_Aguilar ,
+                               :Jarlan_Barrera ;
+                   rdfs:label "Atlético Nacional"@en .
 
 
 ###  http://www.FCF.com/Bonifacio_de_Haro
-<http://www.FCF.com/Bonifacio_de_Haro> rdf:type owl:NamedIndividual ,
-                                                <http://www.FCF.com/Club_Medic> ,
-                                                <http://www.FCF.com/Football_Personal> ;
-                                       <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Chelsea> .
+:Bonifacio_de_Haro rdf:type owl:NamedIndividual ,
+                            :Club_Medic ,
+                            :Football_Personal ;
+                   :is_personal_of :Chelsea .
 
 
 ###  http://www.FCF.com/Bruno_Fernandez
-<http://www.FCF.com/Bruno_Fernandez> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Football_Player> ;
-                                     <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
-                                     <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                     <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                                     <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Portugal> ;
-                                     rdfs:label "Bruno Fernandes"@en .
+:Bruno_Fernandez rdf:type owl:NamedIndividual ,
+                          :Football_Player ;
+                 :has_club :Machester_United ;
+                 :has_main_foot :Right_Foot ;
+                 :has_position :Middlefield ;
+                 <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Portugal> ;
+                 rdfs:label "Bruno Fernandes"@en .
 
 
 ###  http://www.FCF.com/Camp_Nou
-<http://www.FCF.com/Camp_Nou> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/Stadium> ;
-                              <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/FC_Barcelona> ;
-                              rdfs:label "Camp Nou"@en .
+:Camp_Nou rdf:type owl:NamedIndividual ,
+                   :Stadium ;
+          :is_stadium_of :FC_Barcelona ;
+          rdfs:label "Camp Nou"@en .
 
 
 ###  http://www.FCF.com/Carles_Perez
-<http://www.FCF.com/Carles_Perez> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Player> ;
-                                  <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Roma> ;
-                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
-                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
-                                  rdfs:label "Carles Perez"@en .
+:Carles_Perez rdf:type owl:NamedIndividual ,
+                       :Football_Player ;
+              :has_club :FC_Roma ;
+              :has_main_foot :Left_Foot ;
+              :has_position :Forward ;
+              <http://www.FCF.com/has_birth_country> :España ;
+              rdfs:label "Carles Perez"@en .
 
 
 ###  http://www.FCF.com/Carlo_Ancelotti
-<http://www.FCF.com/Carlo_Ancelotti> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Football_Coach> ;
-                                     <http://www.FCF.com/is_coach_of> <http://www.FCF.com/Real_Madrid_CF> ;
-                                     rdfs:label "Carlo Ancelotti"@en .
+:Carlo_Ancelotti rdf:type owl:NamedIndividual ,
+                          :Football_Coach ;
+                 :is_coach_of :Real_Madrid_CF ;
+                 rdfs:label "Carlo Ancelotti"@en .
 
 
 ###  http://www.FCF.com/Cataluña
-<http://www.FCF.com/Cataluña> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/City> ;
-                              <http://www.FCF.com/has_country> <http://www.FCF.com/España> ;
-                              <http://www.FCF.com/is_city_of> <http://www.FCF.com/FC_Barcelona> ;
-                              rdfs:label "Catalonia"@en .
+:Cataluña rdf:type owl:NamedIndividual ,
+                   :City ;
+          :has_country :España ;
+          :is_city_of :FC_Barcelona ;
+          rdfs:label "Catalonia"@en .
 
 
 ###  http://www.FCF.com/Chelsea
-<http://www.FCF.com/Chelsea> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_Club> ;
-                             <http://www.FCF.com/has_city> <http://www.FCF.com/Londres> ;
-                             <http://www.FCF.com/has_coach> <http://www.FCF.com/Thomas_Tuchel> ;
-                             <http://www.FCF.com/has_league> <http://www.FCF.com/Premier_Ligue> ;
-                             <http://www.FCF.com/has_personal> <http://www.FCF.com/Bonifacio_de_Haro> ,
-                                                               <http://www.FCF.com/Oliver_Jimenez> ;
-                             <http://www.FCF.com/has_stadium> <http://www.FCF.com/Stamford_Bridge> ;
-                             <http://www.FCF.com/is_club_of> <http://www.FCF.com/Mason_Mount> ,
-                                                             <http://www.FCF.com/Romelu_Lukaku> ;
-                             rdfs:label "Chelsea F.C."@en .
+:Chelsea rdf:type owl:NamedIndividual ,
+                  :Football_Club ;
+         :has_city :Londres ;
+         :has_coach :Thomas_Tuchel ;
+         :has_league :Premier_Ligue ;
+         :has_personal :Bonifacio_de_Haro ,
+                       :Oliver_Jimenez ;
+         :has_stadium :Stamford_Bridge ;
+         :is_club_of :Mason_Mount ,
+                     :Romelu_Lukaku ;
+         rdfs:label "Chelsea F.C."@en .
 
 
 ###  http://www.FCF.com/Colombia
-<http://www.FCF.com/Colombia> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/Country> ;
-                              <http://www.FCF.com/is_country_of> <http://www.FCF.com/Medellín> ;
-                              <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Dorlan_Pabon> ,
-                                                                     <http://www.FCF.com/Felipe_Aguilar> ,
-                                                                     <http://www.FCF.com/Jarlan_Barrera> ;
-                              rdfs:label "Colombia"@en .
+:Colombia rdf:type owl:NamedIndividual ,
+                   :Country ;
+          :is_country_of :Medellín ;
+          <http://www.FCF.com/is_birth_country_of> :Dorlan_Pabon ,
+                                                 :Felipe_Aguilar ,
+                                                 :Jarlan_Barrera ;
+          rdfs:label "Colombia"@en .
 
 
 ###  http://www.FCF.com/Cristiano_Ronaldo
-<http://www.FCF.com/Cristiano_Ronaldo> rdf:type owl:NamedIndividual ,
-                                                <http://www.FCF.com/Football_Player> ;
-                                       <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
-                                       <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                       <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                       <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Portugal> ;
-                                       rdfs:label "Cristiano Ronaldo"@en .
+:Cristiano_Ronaldo rdf:type owl:NamedIndividual ,
+                            :Football_Player ;
+                   :has_club :Machester_United ;
+                   :has_main_foot :Right_Foot ;
+                   :has_position :Forward ;
+                   <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Portugal> ;
+                   rdfs:label "Cristiano Ronaldo"@en .
 
 
 ###  http://www.FCF.com/Defender
-<http://www.FCF.com/Defender> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/Player_Position> ;
-                              <http://www.FCF.com/is_position_of> <http://www.FCF.com/Felipe_Aguilar> ,
-                                                                  <http://www.FCF.com/Gerard_Pique> ,
-                                                                  <http://www.FCF.com/Harry_Maguire> ,
-                                                                  <http://www.FCF.com/Marcelo> .
+:Defender rdf:type owl:NamedIndividual ,
+                   :Player_Position ;
+          :is_position_of :Felipe_Aguilar ,
+                          :Gerard_Pique ,
+                          :Harry_Maguire ,
+                          :Marcelo .
 
 
 ###  http://www.FCF.com/Dorlan_Pabon
-<http://www.FCF.com/Dorlan_Pabon> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Player> ;
-                                  <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
-                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
-                                  rdfs:label "Dorlan Pabón"@en .
+:Dorlan_Pabon rdf:type owl:NamedIndividual ,
+                       :Football_Player ;
+              :has_club :Atletico_Nacional ;
+              :has_main_foot :Right_Foot ;
+              :has_position :Forward ;
+              <http://www.FCF.com/has_birth_country> :Colombia ;
+              rdfs:label "Dorlan Pabón"@en .
 
 
 ###  http://www.FCF.com/España
-<http://www.FCF.com/España> rdf:type owl:NamedIndividual ,
-                                     <http://www.FCF.com/Country> ;
-                            <http://www.FCF.com/is_country_of> <http://www.FCF.com/Cataluña> ,
-                                                               <http://www.FCF.com/Madrid> ;
-                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Ansu_Fati> ,
-                                                                   <http://www.FCF.com/Carles_Perez> ,
-                                                                   <http://www.FCF.com/Gerard_Pique> ,
-                                                                   <http://www.FCF.com/Pedri> ;
-                            rdfs:label "Spain"@en .
+:España rdf:type owl:NamedIndividual ,
+                 :Country ;
+        :is_country_of :Cataluña ,
+                       :Madrid ;
+        <http://www.FCF.com/is_birth_country_of> :Ansu_Fati ,
+                                               :Carles_Perez ,
+                                               :Gerard_Pique ,
+                                               :Pedri ;
+        rdfs:label "Spain"@en .
 
 
 ###  http://www.FCF.com/Estadio_Olímpico_de_Roma
-<http://www.FCF.com/Estadio_Olímpico_de_Roma> rdf:type owl:NamedIndividual ,
-                                                       <http://www.FCF.com/Stadium> ;
-                                              <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/FC_Roma> ;
-                                              rdfs:comment "The Stadio Olimpico is the largest sports facility in Rome, Italy, seating over 70,000 spectators. It is located within the Foro Italico sports complex, north of the city."@en ;
-                                              rdfs:label "Stadio Olimpico"@en .
+:Estadio_Olímpico_de_Roma rdf:type owl:NamedIndividual ,
+                                   :Stadium ;
+                          :is_stadium_of :FC_Roma ;
+                          rdfs:comment "The Stadio Olimpico is the largest sports facility in Rome, Italy, seating over 70,000 spectators. It is located within the Foro Italico sports complex, north of the city."@en ;
+                          rdfs:label "Stadio Olimpico"@en .
 
 
 ###  http://www.FCF.com/Esteban_García
-<http://www.FCF.com/Esteban_García> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Club_Medic> ,
-                                             <http://www.FCF.com/Football_Personal> ;
-                                    <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Machester_United> .
+:Esteban_García rdf:type owl:NamedIndividual ,
+                         :Club_Medic ,
+                         :Football_Personal ;
+                :is_personal_of :Machester_United .
 
 
 ###  http://www.FCF.com/FC_Barcelona
-<http://www.FCF.com/FC_Barcelona> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Club> ;
-                                  <http://www.FCF.com/has_city> <http://www.FCF.com/Cataluña> ;
-                                  <http://www.FCF.com/has_coach> <http://www.FCF.com/Xavi_Hernández> ;
-                                  <http://www.FCF.com/has_league> <http://www.FCF.com/La_Liga> ;
-                                  <http://www.FCF.com/has_personal> <http://www.FCF.com/Jesús_Bedoya> ,
-                                                                    <http://www.FCF.com/Julen_Fuertes> ;
-                                  <http://www.FCF.com/has_stadium> <http://www.FCF.com/Camp_Nou> ;
-                                  <http://www.FCF.com/is_club_of> <http://www.FCF.com/Ansu_Fati> ,
-                                                                  <http://www.FCF.com/Gerard_Pique> ,
-                                                                  <http://www.FCF.com/Pedri> ,
-                                                                  <http://www.FCF.com/Ter_Stegen> ;
-                                  rdfs:label "FC Barcelona"@en .
+:FC_Barcelona rdf:type owl:NamedIndividual ,
+                       :Football_Club ;
+              :has_city :Cataluña ;
+              :has_coach :Xavi_Hernández ;
+              :has_league :La_Liga ;
+              :has_personal :Jesús_Bedoya ,
+                            :Julen_Fuertes ;
+              :has_stadium :Camp_Nou ;
+              :is_club_of :Ansu_Fati ,
+                          :Gerard_Pique ,
+                          :Pedri ,
+                          :Ter_Stegen ;
+              rdfs:label "FC Barcelona"@en .
 
 
 ###  http://www.FCF.com/FC_Roma
-<http://www.FCF.com/FC_Roma> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_Club> ;
-                             <http://www.FCF.com/has_city> <http://www.FCF.com/Roma> ;
-                             <http://www.FCF.com/has_coach> <http://www.FCF.com/José_Mourinho> ;
-                             <http://www.FCF.com/has_league> <http://www.FCF.com/Serie_A> ;
-                             <http://www.FCF.com/has_personal> <http://www.FCF.com/Jose_Domingo_Saura> ,
-                                                               <http://www.FCF.com/Miguel_Costa> ;
-                             <http://www.FCF.com/has_stadium> <http://www.FCF.com/Estadio_Olímpico_de_Roma> ;
-                             <http://www.FCF.com/is_club_of> <http://www.FCF.com/Carles_Perez> ;
-                             rdfs:label "A.S. Roma"@en .
+:FC_Roma rdf:type owl:NamedIndividual ,
+                  :Football_Club ;
+         :has_city :Roma ;
+         :has_coach :José_Mourinho ;
+         :has_league :Serie_A ;
+         :has_personal :Jose_Domingo_Saura ,
+                       :Miguel_Costa ;
+         :has_stadium :Estadio_Olímpico_de_Roma ;
+         :is_club_of :Carles_Perez ;
+         rdfs:label "A.S. Roma"@en .
 
 
 ###  http://www.FCF.com/Feliciana_Valero
-<http://www.FCF.com/Feliciana_Valero> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Club_Medic> ,
-                                               <http://www.FCF.com/Football_Personal> ;
-                                      <http://www.FCF.com/is_personal_of> <http://www.FCF.com/PSG> .
+:Feliciana_Valero rdf:type owl:NamedIndividual ,
+                           :Club_Medic ,
+                           :Football_Personal ;
+                  :is_personal_of :PSG .
 
 
 ###  http://www.FCF.com/Felipe_Aguilar
-<http://www.FCF.com/Felipe_Aguilar> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Player> ;
-                                    <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
-                                    <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                    <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                                    <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
-                                    rdfs:label "Felipe Aguilar"@en .
+:Felipe_Aguilar rdf:type owl:NamedIndividual ,
+                         :Football_Player ;
+                :has_club :Atletico_Nacional ;
+                :has_main_foot :Right_Foot ;
+                :has_position :Defender ;
+                <http://www.FCF.com/has_birth_country> :Colombia ;
+                rdfs:label "Felipe Aguilar"@en .
 
 
 ###  http://www.FCF.com/Ferran_Ares
-<http://www.FCF.com/Ferran_Ares> rdf:type owl:NamedIndividual ,
-                                          <http://www.FCF.com/Club_Prop> ,
-                                          <http://www.FCF.com/Football_Personal> ;
-                                 <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Atletico_Nacional> .
+:Ferran_Ares rdf:type owl:NamedIndividual ,
+                      :Club_Prop ,
+                      :Football_Personal ;
+             :is_personal_of :Atletico_Nacional .
 
 
 ###  http://www.FCF.com/Forward
-<http://www.FCF.com/Forward> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Player_Position> ;
-                             <http://www.FCF.com/is_position_of> <http://www.FCF.com/Carles_Perez> ,
-                                                                 <http://www.FCF.com/Cristiano_Ronaldo> ,
-                                                                 <http://www.FCF.com/Dorlan_Pabon> ,
-                                                                 <http://www.FCF.com/Karim_Benzema> ,
-                                                                 <http://www.FCF.com/Lautaro_Martinez> ,
-                                                                 <http://www.FCF.com/Lionel_Messi> ,
-                                                                 <http://www.FCF.com/Neymar_Jr> ,
-                                                                 <http://www.FCF.com/Romelu_Lukaku> ,
-                                                                 <http://www.FCF.com/Vinicius_Jr> .
+:Forward rdf:type owl:NamedIndividual ,
+                  :Player_Position ;
+         :is_position_of :Carles_Perez ,
+                         :Cristiano_Ronaldo ,
+                         :Dorlan_Pabon ,
+                         :Karim_Benzema ,
+                         :Lautaro_Martinez ,
+                         :Lionel_Messi ,
+                         :Neymar_Jr ,
+                         :Romelu_Lukaku ,
+                         :Vinicius_Jr .
 
 
 ###  http://www.FCF.com/Francia
-<http://www.FCF.com/Francia> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Country> ;
-                             <http://www.FCF.com/is_country_of> <http://www.FCF.com/Paris> ;
-                             <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Karim_Benzema> ;
-                             rdfs:label "France"@en .
+:Francia rdf:type owl:NamedIndividual ,
+                  :Country ;
+         :is_country_of :Paris ;
+         <http://www.FCF.com/is_birth_country_of> :Karim_Benzema ;
+         rdfs:label "France"@en .
 
 
 ###  http://www.FCF.com/Gerard_Pique
-<http://www.FCF.com/Gerard_Pique> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Player> ;
-                                  <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
-                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                                  <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
-                                  rdfs:label "Gerard Piqué"@en .
+:Gerard_Pique rdf:type owl:NamedIndividual ,
+                       :Football_Player ;
+              :has_club :FC_Barcelona ;
+              :has_main_foot :Right_Foot ;
+              :has_position :Defender ;
+              <http://www.FCF.com/has_birth_country> :España ;
+              rdfs:label "Gerard Piqué"@en .
 
 
 ###  http://www.FCF.com/Giuseppe_Meazza
-<http://www.FCF.com/Giuseppe_Meazza> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Stadium> ;
-                                     <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/Inter_De_Milan> ;
-                                     rdfs:comment "San Siro, officially known as Stadio Giuseppe Meazza, is a football stadium in the San Siro district of Milan, Italy, which is the home of A.C. Milan and Internazionale. It has a seating capacity of 80,018, making it one of the largest stadiums in Europe, and the largest in Italy."@en ;
-                                     rdfs:label "San Siro"@en .
+:Giuseppe_Meazza rdf:type owl:NamedIndividual ,
+                          :Stadium ;
+                 :is_stadium_of :Inter_De_Milan ;
+                 rdfs:comment "San Siro, officially known as Stadio Giuseppe Meazza, is a football stadium in the San Siro district of Milan, Italy, which is the home of A.C. Milan and Internazionale. It has a seating capacity of 80,018, making it one of the largest stadiums in Europe, and the largest in Italy."@en ;
+                 rdfs:label "San Siro"@en .
 
 
 ###  http://www.FCF.com/Goalkeeper
-<http://www.FCF.com/Goalkeeper> rdf:type owl:NamedIndividual ,
-                                         <http://www.FCF.com/Player_Position> ;
-                                <http://www.FCF.com/is_position_of> <http://www.FCF.com/Ansu_Fati> ,
-                                                                    <http://www.FCF.com/Keylor_Navas> ,
-                                                                    <http://www.FCF.com/Ter_Stegen> .
+:Goalkeeper rdf:type owl:NamedIndividual ,
+                     :Player_Position ;
+            :is_position_of :Ansu_Fati ,
+                            :Keylor_Navas ,
+                            :Ter_Stegen .
 
 
 ###  http://www.FCF.com/Harry_Maguire
-<http://www.FCF.com/Harry_Maguire> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_Player> ;
-                                   <http://www.FCF.com/has_club> <http://www.FCF.com/Machester_United> ;
-                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                                   <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Inglaterra> ;
-                                   rdfs:label "Harry Maguire"@en .
+:Harry_Maguire rdf:type owl:NamedIndividual ,
+                        :Football_Player ;
+               :has_club :Machester_United ;
+               :has_main_foot :Right_Foot ;
+               :has_position :Defender ;
+               <http://www.FCF.com/has_birth_country> :Inglaterra ;
+               rdfs:label "Harry Maguire"@en .
 
 
 ###  http://www.FCF.com/Inglaterra
-<http://www.FCF.com/Inglaterra> rdf:type owl:NamedIndividual ,
-                                         <http://www.FCF.com/Country> ;
-                                <http://www.FCF.com/is_country_of> <http://www.FCF.com/Londres> ,
-                                                                   <http://www.FCF.com/Manchester> ;
-                                <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Harry_Maguire> ,
-                                                                       <http://www.FCF.com/Mason_Mount> ;
-                                rdfs:label "England"@en .
+:Inglaterra rdf:type owl:NamedIndividual ,
+                     :Country ;
+            :is_country_of :Londres ,
+                           :Manchester ;
+            <http://www.FCF.com/is_birth_country_of> :Harry_Maguire ,
+                                                   :Mason_Mount ;
+            rdfs:label "England"@en .
 
 
 ###  http://www.FCF.com/Inter_De_Milan
-<http://www.FCF.com/Inter_De_Milan> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Club> ;
-                                    <http://www.FCF.com/has_city> <http://www.FCF.com/Milan> ;
-                                    <http://www.FCF.com/has_coach> <http://www.FCF.com/Simone_Inzaghi> ;
-                                    <http://www.FCF.com/has_league> <http://www.FCF.com/Serie_A> ;
-                                    <http://www.FCF.com/has_personal> <http://www.FCF.com/Jesus_Maria_Pérez> ,
-                                                                      <http://www.FCF.com/Miguel_Espinosa> ;
-                                    <http://www.FCF.com/has_stadium> <http://www.FCF.com/Giuseppe_Meazza> ;
-                                    <http://www.FCF.com/is_club_of> <http://www.FCF.com/Lautaro_Martinez> ,
-                                                                    <http://www.FCF.com/Nicolas_Barella> ;
-                                    rdfs:label "Inter Milan"@en .
+:Inter_De_Milan rdf:type owl:NamedIndividual ,
+                         :Football_Club ;
+                :has_city :Milan ;
+                :has_coach :Simone_Inzaghi ;
+                :has_league :Serie_A ;
+                :has_personal :Jesus_Maria_Pérez ,
+                              :Miguel_Espinosa ;
+                :has_stadium :Giuseppe_Meazza ;
+                :is_club_of :Lautaro_Martinez ,
+                            :Nicolas_Barella ;
+                rdfs:label "Inter Milan"@en .
 
 
 ###  http://www.FCF.com/Italia
-<http://www.FCF.com/Italia> rdf:type owl:NamedIndividual ,
-                                     <http://www.FCF.com/Country> ;
-                            <http://www.FCF.com/is_country_of> <http://www.FCF.com/Milan> ,
-                                                               <http://www.FCF.com/Roma> ;
-                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Nicolas_Barella> ;
-                            rdfs:label "Italy"@en .
+:Italia rdf:type owl:NamedIndividual ,
+                 :Country ;
+        :is_country_of :Milan ,
+                       :Roma ;
+        <http://www.FCF.com/is_birth_country_of> :Nicolas_Barella ;
+        rdfs:label "Italy"@en .
 
 
 ###  http://www.FCF.com/Jaime_Alberto_Guzman
-<http://www.FCF.com/Jaime_Alberto_Guzman> rdf:type owl:NamedIndividual ,
-                                                   <http://www.FCF.com/Club_Medic> ,
-                                                   <http://www.FCF.com/Football_Personal> ;
-                                          <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Real_Madrid_CF> .
+:Jaime_Alberto_Guzman rdf:type owl:NamedIndividual ,
+                               :Club_Medic ,
+                               :Football_Personal ;
+                      :is_personal_of :Real_Madrid_CF .
 
 
 ###  http://www.FCF.com/Jarlan_Barrera
-<http://www.FCF.com/Jarlan_Barrera> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Player> ;
-                                    <http://www.FCF.com/has_club> <http://www.FCF.com/Atletico_Nacional> ;
-                                    <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
-                                    <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                                    <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Colombia> ;
-                                    rdfs:label "Jarlan Barrera"@en .
+:Jarlan_Barrera rdf:type owl:NamedIndividual ,
+                         :Football_Player ;
+                :has_club :Atletico_Nacional ;
+                :has_main_foot :Left_Foot ;
+                :has_position :Middlefield ;
+                <http://www.FCF.com/has_birth_country> :Colombia ;
+                rdfs:label "Jarlan Barrera"@en .
 
 
 ###  http://www.FCF.com/Jesus_Maria_Pérez
-<http://www.FCF.com/Jesus_Maria_Pérez> rdf:type owl:NamedIndividual ,
-                                                <http://www.FCF.com/Club_Prop> ,
-                                                <http://www.FCF.com/Football_Personal> ;
-                                       <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Inter_De_Milan> .
+:Jesus_Maria_Pérez rdf:type owl:NamedIndividual ,
+                            :Club_Prop ,
+                            :Football_Personal ;
+                   :is_personal_of :Inter_De_Milan .
 
 
 ###  http://www.FCF.com/Jesús_Bedoya
-<http://www.FCF.com/Jesús_Bedoya> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Club_Medic> ,
-                                           <http://www.FCF.com/Football_Personal> ;
-                                  <http://www.FCF.com/is_personal_of> <http://www.FCF.com/FC_Barcelona> .
+:Jesús_Bedoya rdf:type owl:NamedIndividual ,
+                       :Club_Medic ,
+                       :Football_Personal ;
+              :is_personal_of :FC_Barcelona .
 
 
 ###  http://www.FCF.com/Jose_Domingo_Saura
-<http://www.FCF.com/Jose_Domingo_Saura> rdf:type owl:NamedIndividual ,
-                                                 <http://www.FCF.com/Club_Prop> ,
-                                                 <http://www.FCF.com/Football_Personal> ;
-                                        <http://www.FCF.com/is_personal_of> <http://www.FCF.com/FC_Roma> .
+:Jose_Domingo_Saura rdf:type owl:NamedIndividual ,
+                             :Club_Prop ,
+                             :Football_Personal ;
+                    :is_personal_of :FC_Roma .
 
 
 ###  http://www.FCF.com/José_Mourinho
-<http://www.FCF.com/José_Mourinho> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_Coach> ;
-                                   <http://www.FCF.com/is_coach_of> <http://www.FCF.com/FC_Roma> ;
-                                   rdfs:label "José Mourinho"@en .
+:José_Mourinho rdf:type owl:NamedIndividual ,
+                        :Football_Coach ;
+               :is_coach_of :FC_Roma ;
+               rdfs:label "José Mourinho"@en .
 
 
 ###  http://www.FCF.com/Julen_Fuertes
-<http://www.FCF.com/Julen_Fuertes> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Club_Prop> ,
-                                            <http://www.FCF.com/Football_Personal> ;
-                                   <http://www.FCF.com/is_personal_of> <http://www.FCF.com/FC_Barcelona> .
+:Julen_Fuertes rdf:type owl:NamedIndividual ,
+                        :Club_Prop ,
+                        :Football_Personal ;
+               :is_personal_of :FC_Barcelona .
 
 
 ###  http://www.FCF.com/Karim_Benzema
-<http://www.FCF.com/Karim_Benzema> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_Player> ;
-                                   <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
-                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                   <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Francia> ;
-                                   rdfs:label "Karim Benzema"@en .
+:Karim_Benzema rdf:type owl:NamedIndividual ,
+                        :Football_Player ;
+               :has_club :Real_Madrid_CF ;
+               :has_main_foot :Right_Foot ;
+               :has_position :Forward ;
+               <http://www.FCF.com/has_birth_country> :Francia ;
+               rdfs:label "Karim Benzema"@en .
 
 
 ###  http://www.FCF.com/Keylor_Navas
-<http://www.FCF.com/Keylor_Navas> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Player> ;
-                                  <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
-                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
-                                  <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Costa_Rica> ;
-                                  rdfs:label "Keylor Navas"@en .
+:Keylor_Navas rdf:type owl:NamedIndividual ,
+                       :Football_Player ;
+              :has_club :PSG ;
+              :has_main_foot :Right_Foot ;
+              :has_position :Goalkeeper ;
+              <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Costa_Rica> ;
+              rdfs:label "Keylor Navas"@en .
 
 
 ###  http://www.FCF.com/La_Liga
-<http://www.FCF.com/La_Liga> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_League> ;
-                             <http://www.FCF.com/is_league_of> <http://www.FCF.com/FC_Barcelona> ,
-                                                               <http://www.FCF.com/Real_Madrid_CF> ;
-                             rdfs:label "La Liga"@en .
+:La_Liga rdf:type owl:NamedIndividual ,
+                  :Football_League ;
+         :is_league_of :FC_Barcelona ,
+                       :Real_Madrid_CF ;
+         rdfs:label "La Liga"@en .
 
 
 ###  http://www.FCF.com/Lautaro_Martinez
-<http://www.FCF.com/Lautaro_Martinez> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Football_Player> ;
-                                      <http://www.FCF.com/has_club> <http://www.FCF.com/Inter_De_Milan> ;
-                                      <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                      <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                      <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Argentina> ;
-                                      rdfs:label "Lautaro Martínez"@en .
+:Lautaro_Martinez rdf:type owl:NamedIndividual ,
+                           :Football_Player ;
+                  :has_club :Inter_De_Milan ;
+                  :has_main_foot :Right_Foot ;
+                  :has_position :Forward ;
+                  <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Argentina> ;
+                  rdfs:label "Lautaro Martínez"@en .
 
 
 ###  http://www.FCF.com/Left_Foot
-<http://www.FCF.com/Left_Foot> rdf:type owl:NamedIndividual ,
-                                        <http://www.FCF.com/Player_Main_Foot> ;
-                               <http://www.FCF.com/is_main_foot_of> <http://www.FCF.com/Carles_Perez> ,
-                                                                    <http://www.FCF.com/Jarlan_Barrera> ,
-                                                                    <http://www.FCF.com/Lionel_Messi> ,
-                                                                    <http://www.FCF.com/Marcelo> ,
-                                                                    <http://www.FCF.com/Romelu_Lukaku> .
+:Left_Foot rdf:type owl:NamedIndividual ,
+                    :Player_Main_Foot ;
+           :is_main_foot_of :Carles_Perez ,
+                            :Jarlan_Barrera ,
+                            :Lionel_Messi ,
+                            :Marcelo ,
+                            :Romelu_Lukaku .
 
 
 ###  http://www.FCF.com/Liga_Betplay_Dimayor
-<http://www.FCF.com/Liga_Betplay_Dimayor> rdf:type owl:NamedIndividual ,
-                                                   <http://www.FCF.com/Football_League> ;
-                                          <http://www.FCF.com/is_league_of> <http://www.FCF.com/Atletico_Nacional> ;
-                                          rdfs:label "Liga Betplay Dimayor"@en .
+:Liga_Betplay_Dimayor rdf:type owl:NamedIndividual ,
+                               :Football_League ;
+                      :is_league_of :Atletico_Nacional ;
+                      rdfs:label "Liga Betplay Dimayor"@en .
 
 
 ###  http://www.FCF.com/Ligue_1
-<http://www.FCF.com/Ligue_1> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_League> ;
-                             <http://www.FCF.com/is_league_of> <http://www.FCF.com/PSG> ;
-                             rdfs:label "Ligue 1"@en .
+:Ligue_1 rdf:type owl:NamedIndividual ,
+                  :Football_League ;
+         :is_league_of :PSG ;
+         rdfs:label "Ligue 1"@en .
 
 
 ###  http://www.FCF.com/Lionel_Messi
-<http://www.FCF.com/Lionel_Messi> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Football_Player> ;
-                                  <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
-                                  <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
-                                  <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                  <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Argentina> ;
-                                  rdfs:label "Lionel Messi"@en .
+:Lionel_Messi rdf:type owl:NamedIndividual ,
+                       :Football_Player ;
+              :has_club :PSG ;
+              :has_main_foot :Left_Foot ;
+              :has_position :Forward ;
+              <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Argentina> ;
+              rdfs:label "Lionel Messi"@en .
 
 
 ###  http://www.FCF.com/Londres
-<http://www.FCF.com/Londres> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/City> ;
-                             <http://www.FCF.com/has_country> <http://www.FCF.com/Inglaterra> ;
-                             <http://www.FCF.com/is_city_of> <http://www.FCF.com/Chelsea> ;
-                             rdfs:label "London"@en .
+:Londres rdf:type owl:NamedIndividual ,
+                  :City ;
+         :has_country :Inglaterra ;
+         :is_city_of :Chelsea ;
+         rdfs:label "London"@en .
 
 
 ###  http://www.FCF.com/Luis_Javier_Montero
-<http://www.FCF.com/Luis_Javier_Montero> rdf:type owl:NamedIndividual ,
-                                                  <http://www.FCF.com/Club_Prop> ,
-                                                  <http://www.FCF.com/Football_Personal> ;
-                                         <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Real_Madrid_CF> .
+:Luis_Javier_Montero rdf:type owl:NamedIndividual ,
+                              :Club_Prop ,
+                              :Football_Personal ;
+                     :is_personal_of :Real_Madrid_CF .
 
 
 ###  http://www.FCF.com/Machester_United
-<http://www.FCF.com/Machester_United> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Football_Club> ;
-                                      <http://www.FCF.com/has_city> <http://www.FCF.com/Manchester> ;
-                                      <http://www.FCF.com/has_coach> <http://www.FCF.com/Ole_Gunnar_Solskjær> ;
-                                      <http://www.FCF.com/has_league> <http://www.FCF.com/Premier_Ligue> ;
-                                      <http://www.FCF.com/has_personal> <http://www.FCF.com/Esteban_García> ,
-                                                                        <http://www.FCF.com/Santiago_Herrero> ;
-                                      <http://www.FCF.com/has_stadium> <http://www.FCF.com/Old_Trafford> ;
-                                      <http://www.FCF.com/is_club_of> <http://www.FCF.com/Bruno_Fernandez> ,
-                                                                      <http://www.FCF.com/Cristiano_Ronaldo> ,
-                                                                      <http://www.FCF.com/Harry_Maguire> ;
-                                      rdfs:label "Manchester United F.C."@en .
+:Machester_United rdf:type owl:NamedIndividual ,
+                           :Football_Club ;
+                  :has_city :Manchester ;
+                  :has_coach :Ole_Gunnar_Solskjær ;
+                  :has_league :Premier_Ligue ;
+                  :has_personal :Esteban_García ,
+                                :Santiago_Herrero ;
+                  :has_stadium :Old_Trafford ;
+                  :is_club_of :Bruno_Fernandez ,
+                              :Cristiano_Ronaldo ,
+                              :Harry_Maguire ;
+                  rdfs:label "Manchester United F.C."@en .
 
 
 ###  http://www.FCF.com/Madrid
-<http://www.FCF.com/Madrid> rdf:type owl:NamedIndividual ,
-                                     <http://www.FCF.com/City> ;
-                            <http://www.FCF.com/has_country> <http://www.FCF.com/España> ;
-                            <http://www.FCF.com/is_city_of> <http://www.FCF.com/Real_Madrid_CF> ;
-                            rdfs:label "Madrid"@en .
+:Madrid rdf:type owl:NamedIndividual ,
+                 :City ;
+        :has_country :España ;
+        :is_city_of :Real_Madrid_CF ;
+        rdfs:label "Madrid"@en .
 
 
 ###  http://www.FCF.com/Manchester
-<http://www.FCF.com/Manchester> rdf:type owl:NamedIndividual ,
-                                         <http://www.FCF.com/City> ;
-                                <http://www.FCF.com/has_country> <http://www.FCF.com/Inglaterra> ;
-                                <http://www.FCF.com/is_city_of> <http://www.FCF.com/Machester_United> ;
-                                rdfs:label "Manchester"@en .
+:Manchester rdf:type owl:NamedIndividual ,
+                     :City ;
+            :has_country :Inglaterra ;
+            :is_city_of :Machester_United ;
+            rdfs:label "Manchester"@en .
 
 
 ###  http://www.FCF.com/Marcelo
-<http://www.FCF.com/Marcelo> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_Player> ;
-                             <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
-                             <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
-                             <http://www.FCF.com/has_position> <http://www.FCF.com/Defender> ;
-                             <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
-                             rdfs:label "Marcelo"@en ,
-                                        "Marcelo"@es .
+:Marcelo rdf:type owl:NamedIndividual ,
+                  :Football_Player ;
+         :has_club :Real_Madrid_CF ;
+         :has_main_foot :Left_Foot ;
+         :has_position :Defender ;
+         <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Brazil> ;
+         rdfs:label "Marcelo"@en ,
+                    "Marcelo"@es .
 
 
 ###  http://www.FCF.com/Mason_Mount
-<http://www.FCF.com/Mason_Mount> rdf:type owl:NamedIndividual ,
-                                          <http://www.FCF.com/Football_Player> ;
-                                 <http://www.FCF.com/has_club> <http://www.FCF.com/Chelsea> ;
-                                 <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                 <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                                 <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Inglaterra> ;
-                                 rdfs:label "Mason Mount"@en .
+:Mason_Mount rdf:type owl:NamedIndividual ,
+                      :Football_Player ;
+             :has_club :Chelsea ;
+             :has_main_foot :Right_Foot ;
+             :has_position :Middlefield ;
+             <http://www.FCF.com/has_birth_country> :Inglaterra ;
+             rdfs:label "Mason Mount"@en .
 
 
 ###  http://www.FCF.com/Mauricio_Pochettino
-<http://www.FCF.com/Mauricio_Pochettino> rdf:type owl:NamedIndividual ,
-                                                  <http://www.FCF.com/Football_Coach> ;
-                                         <http://www.FCF.com/is_coach_of> <http://www.FCF.com/PSG> ;
-                                         rdfs:label "Mauricio Pochettino"@en .
+:Mauricio_Pochettino rdf:type owl:NamedIndividual ,
+                              :Football_Coach ;
+                     :is_coach_of :PSG ;
+                     rdfs:label "Mauricio Pochettino"@en .
 
 
 ###  http://www.FCF.com/Medellín
-<http://www.FCF.com/Medellín> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/City> ;
-                              <http://www.FCF.com/has_country> <http://www.FCF.com/Colombia> ;
-                              <http://www.FCF.com/is_city_of> <http://www.FCF.com/Atletico_Nacional> ;
-                              rdfs:label "Medellín"@en .
+:Medellín rdf:type owl:NamedIndividual ,
+                   :City ;
+          :has_country :Colombia ;
+          :is_city_of :Atletico_Nacional ;
+          rdfs:label "Medellín"@en .
 
 
 ###  http://www.FCF.com/Middlefield
-<http://www.FCF.com/Middlefield> rdf:type owl:NamedIndividual ,
-                                          <http://www.FCF.com/Player_Position> ;
-                                 <http://www.FCF.com/is_position_of> <http://www.FCF.com/Bruno_Fernandez> ,
-                                                                     <http://www.FCF.com/Jarlan_Barrera> ,
-                                                                     <http://www.FCF.com/Mason_Mount> ,
-                                                                     <http://www.FCF.com/Nicolas_Barella> ,
-                                                                     <http://www.FCF.com/Pedri> .
+:Middlefield rdf:type owl:NamedIndividual ,
+                      :Player_Position ;
+             :is_position_of :Bruno_Fernandez ,
+                             :Jarlan_Barrera ,
+                             :Mason_Mount ,
+                             :Nicolas_Barella ,
+                             :Pedri .
 
 
 ###  http://www.FCF.com/Miguel_Costa
-<http://www.FCF.com/Miguel_Costa> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Club_Medic> ,
-                                           <http://www.FCF.com/Football_Personal> ;
-                                  <http://www.FCF.com/is_personal_of> <http://www.FCF.com/FC_Roma> .
+:Miguel_Costa rdf:type owl:NamedIndividual ,
+                       :Club_Medic ,
+                       :Football_Personal ;
+              :is_personal_of :FC_Roma .
 
 
 ###  http://www.FCF.com/Miguel_Espinosa
-<http://www.FCF.com/Miguel_Espinosa> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Club_Medic> ,
-                                              <http://www.FCF.com/Football_Personal> ;
-                                     <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Inter_De_Milan> .
+:Miguel_Espinosa rdf:type owl:NamedIndividual ,
+                          :Club_Medic ,
+                          :Football_Personal ;
+                 :is_personal_of :Inter_De_Milan .
 
 
 ###  http://www.FCF.com/Milan
-<http://www.FCF.com/Milan> rdf:type owl:NamedIndividual ,
-                                    <http://www.FCF.com/City> ;
-                           <http://www.FCF.com/has_country> <http://www.FCF.com/Italia> ;
-                           <http://www.FCF.com/is_city_of> <http://www.FCF.com/Inter_De_Milan> ;
-                           rdfs:label "Milan"@en .
+:Milan rdf:type owl:NamedIndividual ,
+                :City ;
+       :has_country :Italia ;
+       :is_city_of :Inter_De_Milan ;
+       rdfs:label "Milan"@en .
 
 
 ###  http://www.FCF.com/Neymar_Jr
-<http://www.FCF.com/Neymar_Jr> rdf:type owl:NamedIndividual ,
-                                        <http://www.FCF.com/Football_Player> ;
-                               <http://www.FCF.com/has_club> <http://www.FCF.com/PSG> ;
-                               <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                               <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                               <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
-                               rdfs:label "Neymar"@en .
+:Neymar_Jr rdf:type owl:NamedIndividual ,
+                    :Football_Player ;
+           :has_club :PSG ;
+           :has_main_foot :Right_Foot ;
+           :has_position :Forward ;
+           <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Brazil> ;
+           rdfs:label "Neymar"@en .
 
 
 ###  http://www.FCF.com/Nicolas_Barella
-<http://www.FCF.com/Nicolas_Barella> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Football_Player> ;
-                                     <http://www.FCF.com/has_club> <http://www.FCF.com/Inter_De_Milan> ;
-                                     <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                     <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                                     <http:www.FCF.com/has_birth_country> <http://www.FCF.com/Italia> ;
-                                     rdfs:label "Nicolò Barella"@en .
+:Nicolas_Barella rdf:type owl:NamedIndividual ,
+                          :Football_Player ;
+                 :has_club :Inter_De_Milan ;
+                 :has_main_foot :Right_Foot ;
+                 :has_position :Middlefield ;
+                 <http://www.FCF.com/has_birth_country> :Italia ;
+                 rdfs:label "Nicolò Barella"@en .
 
 
 ###  http://www.FCF.com/Old_Trafford
-<http://www.FCF.com/Old_Trafford> rdf:type owl:NamedIndividual ,
-                                           <http://www.FCF.com/Stadium> ;
-                                  <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/Machester_United> ;
-                                  rdfs:comment "Old Trafford (/ˈtræfərd/) is a football stadium in Old Trafford, Greater Manchester, England, and the home of Manchester United. With a capacity of 74,140 seats, it is the largest club football stadium (and second-largest football stadium overall after Wembley Stadium) in the United Kingdom, and the eleventh-largest in Europe"@en ;
-                                  rdfs:label "Old Trafford"@en .
+:Old_Trafford rdf:type owl:NamedIndividual ,
+                       :Stadium ;
+              :is_stadium_of :Machester_United ;
+              rdfs:comment "Old Trafford (/ˈtræfərd/) is a football stadium in Old Trafford, Greater Manchester, England, and the home of Manchester United. With a capacity of 74,140 seats, it is the largest club football stadium (and second-largest football stadium overall after Wembley Stadium) in the United Kingdom, and the eleventh-largest in Europe"@en ;
+              rdfs:label "Old Trafford"@en .
 
 
 ###  http://www.FCF.com/Ole_Gunnar_Solskjær
-<http://www.FCF.com/Ole_Gunnar_Solskjær> rdf:type owl:NamedIndividual ,
-                                                  <http://www.FCF.com/Football_Coach> ;
-                                         <http://www.FCF.com/is_coach_of> <http://www.FCF.com/Machester_United> ;
-                                         rdfs:label "Ole Gunnar Solskjær"@en .
+:Ole_Gunnar_Solskjær rdf:type owl:NamedIndividual ,
+                              :Football_Coach ;
+                     :is_coach_of :Machester_United ;
+                     rdfs:label "Ole Gunnar Solskjær"@en .
 
 
 ###  http://www.FCF.com/Oliver_Jimenez
-<http://www.FCF.com/Oliver_Jimenez> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Club_Prop> ,
-                                             <http://www.FCF.com/Football_Personal> ;
-                                    <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Chelsea> .
+:Oliver_Jimenez rdf:type owl:NamedIndividual ,
+                         :Club_Prop ,
+                         :Football_Personal ;
+                :is_personal_of :Chelsea .
 
 
 ###  http://www.FCF.com/PSG
-<http://www.FCF.com/PSG> rdf:type owl:NamedIndividual ,
-                                  <http://www.FCF.com/Football_Club> ;
-                         <http://www.FCF.com/has_city> <http://www.FCF.com/Paris> ;
-                         <http://www.FCF.com/has_coach> <http://www.FCF.com/Mauricio_Pochettino> ;
-                         <http://www.FCF.com/has_league> <http://www.FCF.com/Ligue_1> ;
-                         <http://www.FCF.com/has_personal> <http://www.FCF.com/Feliciana_Valero> ,
-                                                           <http://www.FCF.com/Serafin_Da-Silva> ,
-                                                           <http://www.FCF.com/Vicente_Huerta> ;
-                         <http://www.FCF.com/has_stadium> <http://www.FCF.com/Parque_de_los_Príncipes> ;
-                         <http://www.FCF.com/is_club_of> <http://www.FCF.com/Keylor_Navas> ,
-                                                         <http://www.FCF.com/Lionel_Messi> ,
-                                                         <http://www.FCF.com/Neymar_Jr> ;
-                         rdfs:label "Paris Saint-Germain F.C."@en .
+:PSG rdf:type owl:NamedIndividual ,
+              :Football_Club ;
+     :has_city :Paris ;
+     :has_coach :Mauricio_Pochettino ;
+     :has_league :Ligue_1 ;
+     :has_personal :Feliciana_Valero ,
+                   :Serafin_Da-Silva ,
+                   :Vicente_Huerta ;
+     :has_stadium :Parque_de_los_Príncipes ;
+     :is_club_of :Keylor_Navas ,
+                 :Lionel_Messi ,
+                 :Neymar_Jr ;
+     rdfs:label "Paris Saint-Germain F.C."@en .
 
 
 ###  http://www.FCF.com/Paris
-<http://www.FCF.com/Paris> rdf:type owl:NamedIndividual ,
-                                    <http://www.FCF.com/City> ;
-                           <http://www.FCF.com/has_country> <http://www.FCF.com/Francia> ;
-                           <http://www.FCF.com/is_city_of> <http://www.FCF.com/PSG> ;
-                           rdfs:label "Paris"@en .
+:Paris rdf:type owl:NamedIndividual ,
+                :City ;
+       :has_country :Francia ;
+       :is_city_of :PSG ;
+       rdfs:label "Paris"@en .
 
 
 ###  http://www.FCF.com/Parque_de_los_Príncipes
-<http://www.FCF.com/Parque_de_los_Príncipes> rdf:type owl:NamedIndividual ,
-                                                      <http://www.FCF.com/Stadium> ;
-                                             <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/PSG> ;
-                                             rdfs:label "Parc des Princes"@en .
+:Parque_de_los_Príncipes rdf:type owl:NamedIndividual ,
+                                  :Stadium ;
+                         :is_stadium_of :PSG ;
+                         rdfs:label "Parc des Princes"@en .
 
 
 ###  http://www.FCF.com/Pedri
-<http://www.FCF.com/Pedri> rdf:type owl:NamedIndividual ,
-                                    <http://www.FCF.com/Football_Player> ;
-                           <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
-                           <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                           <http://www.FCF.com/has_position> <http://www.FCF.com/Middlefield> ;
-                           <http:www.FCF.com/has_birth_country> <http://www.FCF.com/España> ;
-                           rdfs:label "Pedri"@en .
+:Pedri rdf:type owl:NamedIndividual ,
+                :Football_Player ;
+       :has_club :FC_Barcelona ;
+       :has_main_foot :Right_Foot ;
+       :has_position :Middlefield ;
+       <http://www.FCF.com/has_birth_country> :España ;
+       rdfs:label "Pedri"@en .
 
 
 ###  http://www.FCF.com/Premier_Ligue
-<http://www.FCF.com/Premier_Ligue> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_League> ;
-                                   <http://www.FCF.com/is_league_of> <http://www.FCF.com/Chelsea> ,
-                                                                     <http://www.FCF.com/Machester_United> ;
-                                   rdfs:label "Premier League"@en .
+:Premier_Ligue rdf:type owl:NamedIndividual ,
+                        :Football_League ;
+               :is_league_of :Chelsea ,
+                             :Machester_United ;
+               rdfs:label "Premier League"@en .
 
 
 ###  http://www.FCF.com/Real_Madrid_CF
-<http://www.FCF.com/Real_Madrid_CF> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Club> ;
-                                    <http://www.FCF.com/has_city> <http://www.FCF.com/Madrid> ;
-                                    <http://www.FCF.com/has_coach> <http://www.FCF.com/Carlo_Ancelotti> ;
-                                    <http://www.FCF.com/has_league> <http://www.FCF.com/La_Liga> ;
-                                    <http://www.FCF.com/has_personal> <http://www.FCF.com/Jaime_Alberto_Guzman> ,
-                                                                      <http://www.FCF.com/Luis_Javier_Montero> ;
-                                    <http://www.FCF.com/has_stadium> <http://www.FCF.com/Santiago_Bernabeu> ;
-                                    <http://www.FCF.com/is_club_of> <http://www.FCF.com/Karim_Benzema> ,
-                                                                    <http://www.FCF.com/Marcelo> ,
-                                                                    <http://www.FCF.com/Vinicius_Jr> ;
-                                    rdfs:label "Real Madrid CF"@en .
+:Real_Madrid_CF rdf:type owl:NamedIndividual ,
+                         :Football_Club ;
+                :has_city :Madrid ;
+                :has_coach :Carlo_Ancelotti ;
+                :has_league :La_Liga ;
+                :has_personal :Jaime_Alberto_Guzman ,
+                              :Luis_Javier_Montero ;
+                :has_stadium :Santiago_Bernabeu ;
+                :is_club_of :Karim_Benzema ,
+                            :Marcelo ,
+                            :Vinicius_Jr ;
+                rdfs:label "Real Madrid CF"@en .
 
 
 ###  http://www.FCF.com/Right_Foot
-<http://www.FCF.com/Right_Foot> rdf:type owl:NamedIndividual ,
-                                         <http://www.FCF.com/Player_Main_Foot> ;
-                                <http://www.FCF.com/is_main_foot_of> <http://www.FCF.com/Ansu_Fati> ,
-                                                                     <http://www.FCF.com/Bruno_Fernandez> ,
-                                                                     <http://www.FCF.com/Cristiano_Ronaldo> ,
-                                                                     <http://www.FCF.com/Dorlan_Pabon> ,
-                                                                     <http://www.FCF.com/Felipe_Aguilar> ,
-                                                                     <http://www.FCF.com/Gerard_Pique> ,
-                                                                     <http://www.FCF.com/Harry_Maguire> ,
-                                                                     <http://www.FCF.com/Karim_Benzema> ,
-                                                                     <http://www.FCF.com/Keylor_Navas> ,
-                                                                     <http://www.FCF.com/Lautaro_Martinez> ,
-                                                                     <http://www.FCF.com/Mason_Mount> ,
-                                                                     <http://www.FCF.com/Neymar_Jr> ,
-                                                                     <http://www.FCF.com/Nicolas_Barella> ,
-                                                                     <http://www.FCF.com/Pedri> ,
-                                                                     <http://www.FCF.com/Ter_Stegen> ,
-                                                                     <http://www.FCF.com/Vinicius_Jr> .
+:Right_Foot rdf:type owl:NamedIndividual ,
+                     :Player_Main_Foot ;
+            :is_main_foot_of :Ansu_Fati ,
+                             :Bruno_Fernandez ,
+                             :Cristiano_Ronaldo ,
+                             :Dorlan_Pabon ,
+                             :Felipe_Aguilar ,
+                             :Gerard_Pique ,
+                             :Harry_Maguire ,
+                             :Karim_Benzema ,
+                             :Keylor_Navas ,
+                             :Lautaro_Martinez ,
+                             :Mason_Mount ,
+                             :Neymar_Jr ,
+                             :Nicolas_Barella ,
+                             :Pedri ,
+                             :Ter_Stegen ,
+                             :Vinicius_Jr .
 
 
 ###  http://www.FCF.com/Roma
-<http://www.FCF.com/Roma> rdf:type owl:NamedIndividual ,
-                                   <http://www.FCF.com/City> ;
-                          <http://www.FCF.com/has_country> <http://www.FCF.com/Italia> ;
-                          <http://www.FCF.com/is_city_of> <http://www.FCF.com/FC_Roma> ;
-                          rdfs:label "Rome"@en .
+:Roma rdf:type owl:NamedIndividual ,
+               :City ;
+      :has_country :Italia ;
+      :is_city_of :FC_Roma ;
+      rdfs:label "Rome"@en .
 
 
 ###  http://www.FCF.com/Romelu_Lukaku
-<http://www.FCF.com/Romelu_Lukaku> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_Player> ;
-                                   <http://www.FCF.com/has_club> <http://www.FCF.com/Chelsea> ;
-                                   <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Left_Foot> ;
-                                   <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                   <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Belgium> ;
-                                   rdfs:label "Romelu Lukaku"@en .
+:Romelu_Lukaku rdf:type owl:NamedIndividual ,
+                        :Football_Player ;
+               :has_club :Chelsea ;
+               :has_main_foot :Left_Foot ;
+               :has_position :Forward ;
+               <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Belgium> ;
+               rdfs:label "Romelu Lukaku"@en .
 
 
 ###  http://www.FCF.com/Santiago_Bernabeu
-<http://www.FCF.com/Santiago_Bernabeu> rdf:type owl:NamedIndividual ,
-                                                <http://www.FCF.com/Stadium> ;
-                                       <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/Real_Madrid_CF> ;
-                                       rdfs:comment "The Santiago Bernabéu Stadium (Spanish: Estadio Santiago Bernabéu, [esˈtaðjo sanˈtjaɣo βeɾnaˈβew]) is a football stadium in Madrid, Spain. With a current seating capacity of 81,044, it has been the home stadium of Real Madrid since its completion in 1947. It is the second-largest stadium in Spain and third-largest home to a top-flight European club after Camp Nou and Westfalenstadion"@en ;
-                                       rdfs:label "Santiago Bernabéu Stadium"@en .
+:Santiago_Bernabeu rdf:type owl:NamedIndividual ,
+                            :Stadium ;
+                   :is_stadium_of :Real_Madrid_CF ;
+                   rdfs:comment "The Santiago Bernabéu Stadium (Spanish: Estadio Santiago Bernabéu, [esˈtaðjo sanˈtjaɣo βeɾnaˈβew]) is a football stadium in Madrid, Spain. With a current seating capacity of 81,044, it has been the home stadium of Real Madrid since its completion in 1947. It is the second-largest stadium in Spain and third-largest home to a top-flight European club after Camp Nou and Westfalenstadion"@en ;
+                   rdfs:label "Santiago Bernabéu Stadium"@en .
 
 
 ###  http://www.FCF.com/Santiago_Herrero
-<http://www.FCF.com/Santiago_Herrero> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Club_Prop> ,
-                                               <http://www.FCF.com/Football_Personal> ;
-                                      <http://www.FCF.com/is_personal_of> <http://www.FCF.com/Machester_United> .
+:Santiago_Herrero rdf:type owl:NamedIndividual ,
+                           :Club_Prop ,
+                           :Football_Personal ;
+                  :is_personal_of :Machester_United .
 
 
 ###  http://www.FCF.com/Serafin_Da-Silva
-<http://www.FCF.com/Serafin_Da-Silva> rdf:type owl:NamedIndividual ,
-                                               <http://www.FCF.com/Club_Prop> ,
-                                               <http://www.FCF.com/Football_Personal> ;
-                                      <http://www.FCF.com/is_personal_of> <http://www.FCF.com/PSG> .
+:Serafin_Da-Silva rdf:type owl:NamedIndividual ,
+                           :Club_Prop ,
+                           :Football_Personal ;
+                  :is_personal_of :PSG .
 
 
 ###  http://www.FCF.com/Serie_A
-<http://www.FCF.com/Serie_A> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Football_League> ;
-                             <http://www.FCF.com/is_league_of> <http://www.FCF.com/FC_Roma> ,
-                                                               <http://www.FCF.com/Inter_De_Milan> ;
-                             rdfs:label "Serie A"@en .
+:Serie_A rdf:type owl:NamedIndividual ,
+                  :Football_League ;
+         :is_league_of :FC_Roma ,
+                       :Inter_De_Milan ;
+         rdfs:label "Serie A"@en .
 
 
 ###  http://www.FCF.com/Simone_Inzaghi
-<http://www.FCF.com/Simone_Inzaghi> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Coach> ;
-                                    <http://www.FCF.com/is_coach_of> <http://www.FCF.com/Inter_De_Milan> ;
-                                    rdfs:label "Simone Inzaghi"@en .
+:Simone_Inzaghi rdf:type owl:NamedIndividual ,
+                         :Football_Coach ;
+                :is_coach_of :Inter_De_Milan ;
+                rdfs:label "Simone Inzaghi"@en .
 
 
 ###  http://www.FCF.com/Stamford_Bridge
-<http://www.FCF.com/Stamford_Bridge> rdf:type owl:NamedIndividual ,
-                                              <http://www.FCF.com/Stadium> ;
-                                     <http://www.FCF.com/is_stadium_of> <http://www.FCF.com/Chelsea> ;
-                                     rdfs:label "Stamford Bridge (stadium)"@en .
+:Stamford_Bridge rdf:type owl:NamedIndividual ,
+                          :Stadium ;
+                 :is_stadium_of :Chelsea ;
+                 rdfs:label "Stamford Bridge (stadium)"@en .
 
 
 ###  http://www.FCF.com/Ter_Stegen
-<http://www.FCF.com/Ter_Stegen> rdf:type owl:NamedIndividual ,
-                                         <http://www.FCF.com/Football_Player> ;
-                                <http://www.FCF.com/has_club> <http://www.FCF.com/FC_Barcelona> ;
-                                <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                <http://www.FCF.com/has_position> <http://www.FCF.com/Goalkeeper> ;
-                                <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Germany> ;
-                                rdfs:label "Marc-André ter Stegen"@en .
+:Ter_Stegen rdf:type owl:NamedIndividual ,
+                     :Football_Player ;
+            :has_club :FC_Barcelona ;
+            :has_main_foot :Right_Foot ;
+            :has_position :Goalkeeper ;
+            <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Germany> ;
+            rdfs:label "Marc-André ter Stegen"@en .
 
 
 ###  http://www.FCF.com/Thomas_Tuchel
-<http://www.FCF.com/Thomas_Tuchel> rdf:type owl:NamedIndividual ,
-                                            <http://www.FCF.com/Football_Coach> ;
-                                   <http://www.FCF.com/is_coach_of> <http://www.FCF.com/Chelsea> ;
-                                   rdfs:label "Thomas Tuchel"@en .
+:Thomas_Tuchel rdf:type owl:NamedIndividual ,
+                        :Football_Coach ;
+               :is_coach_of :Chelsea ;
+               rdfs:label "Thomas Tuchel"@en .
 
 
 ###  http://www.FCF.com/Vicente_Huerta
-<http://www.FCF.com/Vicente_Huerta> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Club_Medic> ,
-                                             <http://www.FCF.com/Football_Personal> ;
-                                    <http://www.FCF.com/is_personal_of> <http://www.FCF.com/PSG> .
+:Vicente_Huerta rdf:type owl:NamedIndividual ,
+                         :Club_Medic ,
+                         :Football_Personal ;
+                :is_personal_of :PSG .
 
 
 ###  http://www.FCF.com/Vinicius_Jr
-<http://www.FCF.com/Vinicius_Jr> rdf:type owl:NamedIndividual ,
-                                          <http://www.FCF.com/Football_Player> ;
-                                 <http://www.FCF.com/has_club> <http://www.FCF.com/Real_Madrid_CF> ;
-                                 <http://www.FCF.com/has_main_foot> <http://www.FCF.com/Right_Foot> ;
-                                 <http://www.FCF.com/has_position> <http://www.FCF.com/Forward> ;
-                                 <http:www.FCF.com/has_birth_country> <http:www.FCF.com/Brazil> ;
-                                 rdfs:label "Vinícius Júnior"@en .
+:Vinicius_Jr rdf:type owl:NamedIndividual ,
+                      :Football_Player ;
+             :has_club :Real_Madrid_CF ;
+             :has_main_foot :Right_Foot ;
+             :has_position :Forward ;
+             <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Brazil> ;
+             rdfs:label "Vinícius Júnior"@en .
 
 
 ###  http://www.FCF.com/Xavi_Hernández
-<http://www.FCF.com/Xavi_Hernández> rdf:type owl:NamedIndividual ,
-                                             <http://www.FCF.com/Football_Coach> ;
-                                    <http://www.FCF.com/is_coach_of> <http://www.FCF.com/FC_Barcelona> ;
-                                    rdfs:label "Xavi"@en .
+:Xavi_Hernández rdf:type owl:NamedIndividual ,
+                         :Football_Coach ;
+                :is_coach_of :FC_Barcelona ;
+                rdfs:label "Xavi"@en .
 
 
-###  http:www.FCF.com/Argentina
-<http:www.FCF.com/Argentina> rdf:type owl:NamedIndividual ,
-                                      <http://www.FCF.com/Country> ;
-                             <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Lautaro_Martinez> ,
-                                                                    <http://www.FCF.com/Lionel_Messi> ;
+###  http://www.FCF.com/Argentina
+<http://www.FCF.com/Argentina> rdf:type owl:NamedIndividual ,
+                                      :Country ;
+                             <http://www.FCF.com/is_birth_country_of> :Lautaro_Martinez ,
+                                                                    :Lionel_Messi ;
                              rdfs:label "Argentina"@en .
 
 
-###  http:www.FCF.com/Belgium
-<http:www.FCF.com/Belgium> rdf:type owl:NamedIndividual ,
-                                    <http://www.FCF.com/Country> ;
-                           <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Romelu_Lukaku> ;
+###  http://www.FCF.com/Belgium
+<http://www.FCF.com/Belgium> rdf:type owl:NamedIndividual ,
+                                    :Country ;
+                           <http://www.FCF.com/is_birth_country_of> :Romelu_Lukaku ;
                            rdfs:label "Belgium"@en .
 
 
-###  http:www.FCF.com/Brazil
-<http:www.FCF.com/Brazil> rdf:type owl:NamedIndividual ,
-                                   <http://www.FCF.com/Country> ;
-                          <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Marcelo> ,
-                                                                 <http://www.FCF.com/Neymar_Jr> ,
-                                                                 <http://www.FCF.com/Vinicius_Jr> ;
+###  http://www.FCF.com/Brazil
+<http://www.FCF.com/Brazil> rdf:type owl:NamedIndividual ,
+                                   :Country ;
+                          <http://www.FCF.com/is_birth_country_of> :Marcelo ,
+                                                                 :Neymar_Jr ,
+                                                                 :Vinicius_Jr ;
                           rdfs:label "Brazil"@en .
 
 
-###  http:www.FCF.com/Costa_Rica
-<http:www.FCF.com/Costa_Rica> rdf:type owl:NamedIndividual ,
-                                       <http://www.FCF.com/Country> ;
-                              <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Keylor_Navas> ;
+###  http://www.FCF.com/Costa_Rica
+<http://www.FCF.com/Costa_Rica> rdf:type owl:NamedIndividual ,
+                                       :Country ;
+                              <http://www.FCF.com/is_birth_country_of> :Keylor_Navas ;
                               rdfs:label "Costa Rica"@en .
 
 
-###  http:www.FCF.com/Germany
-<http:www.FCF.com/Germany> rdf:type owl:NamedIndividual ,
-                                    <http://www.FCF.com/Country> ;
-                           <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Ter_Stegen> ;
+###  http://www.FCF.com/Germany
+<http://www.FCF.com/Germany> rdf:type owl:NamedIndividual ,
+                                    :Country ;
+                           <http://www.FCF.com/is_birth_country_of> :Ter_Stegen ;
                            rdfs:label "Germany"@en .
 
 
-###  http:www.FCF.com/Portugal
-<http:www.FCF.com/Portugal> rdf:type owl:NamedIndividual ,
-                                     <http://www.FCF.com/Country> ;
-                            <http:www.FCF.com/is_birth_country_of> <http://www.FCF.com/Bruno_Fernandez> ,
-                                                                   <http://www.FCF.com/Cristiano_Ronaldo> ;
+###  http://www.FCF.com/Portugal
+<http://www.FCF.com/Portugal> rdf:type owl:NamedIndividual ,
+                                     :Country ;
+                            <http://www.FCF.com/is_birth_country_of> :Bruno_Fernandez ,
+                                                                   :Cristiano_Ronaldo ;
                             rdfs:label "Portugal"@en .
 
 
