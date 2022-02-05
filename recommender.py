@@ -51,9 +51,12 @@ def get_recommended_player(players, position):
         'Senegal': '&#127480;&#127475;'
     })
 
+    normalized_user_profile = get_normalized_user_profile(players)
+
     normalized_dummies_profiles = [
         get_normalized_user_profile(scores) for scores in dummie_users]
-    normalized_user_profile = get_normalized_user_profile(players)
+    dummies_distances = [get_distance_between_users(
+        normalized_user_profile, profile) for profile in normalized_dummies_profiles]
 
     # ? MOCK DATA
     random_name = choice(queries.get_players())[0]
@@ -107,3 +110,9 @@ def get_normalized_user_profile(user_players, impute_scalar=1):
 
     # como las variables son categóricas, ya están normalizadas :D
     return pondered_user_profile
+
+
+def get_distance_between_users(user_profile_x, user_profile_y):
+    np_x = np.array(user_profile_x)
+    np_y = np.array(user_profile_y)
+    return np.linalg.norm(np_y - np_x)
