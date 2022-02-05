@@ -80,7 +80,7 @@ def get_encoded_players_matrix():
     return list(df.index.to_numpy()), list(df.to_numpy())
 
 
-def get_pondered_players_matrix(user_players: dict, impute_scalar=1):
+def get_pondered_players_matrix(user_players: dict, impute_scalar):
     players_index, players_encoded = get_encoded_players_matrix()
 
     pondered_players_encoded = []
@@ -99,9 +99,9 @@ def get_pondered_players_matrix(user_players: dict, impute_scalar=1):
     return pondered_players_encoded, total_user_score
 
 
-def get_normalized_user_profile(user_players):
+def get_normalized_user_profile(user_players, impute_scalar=1):
     pondered_players_encoded, total_user_score = get_pondered_players_matrix(
-        user_players)
+        user_players, impute_scalar)
     user_profile = list(np.sum(pondered_players_encoded, axis=0))
     pondered_user_profile = [x/total_user_score for x in user_profile]
 
