@@ -28,6 +28,7 @@ def get_player_by_name(name, pretty=True):
                 player_helper = (prettify(str(s)), prettify(str(o)))
             else:
                 player_helper = (str(s), str(o))
+            break
 
     foot_helper = ()
     for s, p, o in g:
@@ -37,6 +38,7 @@ def get_player_by_name(name, pretty=True):
                 foot_helper = (*player_helper, prettify(str(o)))
             else:
                 foot_helper = (*player_helper, str(o))
+            break
 
     country_helper = ()
     for s, p, o in g:
@@ -46,6 +48,7 @@ def get_player_by_name(name, pretty=True):
                 country_helper = (*foot_helper, prettify(str(o)))
             else:
                 country_helper = (*foot_helper, str(o))
+            break
 
     club_helper = ()
     for s, p, o in g:
@@ -55,6 +58,7 @@ def get_player_by_name(name, pretty=True):
                 club_helper = (*country_helper, prettify(str(o)))
             else:
                 club_helper = (*country_helper, str(o))
+            break
 
     return club_helper
 

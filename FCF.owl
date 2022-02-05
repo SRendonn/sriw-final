@@ -335,7 +335,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Bruno_Fernandes
 :Bruno_Fernandes rdf:type owl:NamedIndividual ,
                           :Football_Player ;
-                 :has_club :Machester_United ;
+                 :has_club :Manchester_United ;
                  :has_main_foot :Right_Foot ;
                  :has_position :Middlefield ;
                  <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Portugal> ;
@@ -401,7 +401,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Cristiano_Ronaldo
 :Cristiano_Ronaldo rdf:type owl:NamedIndividual ,
                             :Football_Player ;
-                   :has_club :Machester_United ;
+                   :has_club :Manchester_United ;
                    :has_main_foot :Right_Foot ;
                    :has_position :Forward ;
                    <http://www.FCF.com/has_birth_country> <http://www.FCF.com/Portugal> ;
@@ -451,7 +451,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 :Esteban_García rdf:type owl:NamedIndividual ,
                          :Club_Medic ,
                          :Football_Personal ;
-                :is_personal_of :Machester_United .
+                :is_personal_of :Manchester_United .
 
 
 ###  http://www.FCF.com/FC_Barcelona
@@ -558,7 +558,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Harry_Maguire
 :Harry_Maguire rdf:type owl:NamedIndividual ,
                         :Football_Player ;
-               :has_club :Machester_United ;
+               :has_club :Manchester_United ;
                :has_main_foot :Right_Foot ;
                :has_position :Defender ;
                <http://www.FCF.com/has_birth_country> :England ;
@@ -737,8 +737,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                      :is_personal_of :Real_Madrid_CF .
 
 
-###  http://www.FCF.com/Machester_United
-:Machester_United rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/Manchester_United
+:Manchester_United rdf:type owl:NamedIndividual ,
                            :Football_Club ;
                   :has_city :Manchester ;
                   :has_coach :Ole_Gunnar_Solskjær ;
@@ -764,7 +764,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 :Manchester rdf:type owl:NamedIndividual ,
                      :City ;
             :has_country :England ;
-            :is_city_of :Machester_United ;
+            :is_city_of :Manchester_United ;
             rdfs:label "Manchester"@en .
 
 
@@ -859,7 +859,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Old_Trafford
 :Old_Trafford rdf:type owl:NamedIndividual ,
                        :Stadium ;
-              :is_stadium_of :Machester_United ;
+              :is_stadium_of :Manchester_United ;
               rdfs:comment "Old Trafford (/ˈtræfərd/) is a football stadium in Old Trafford, Greater Manchester, England, and the home of Manchester United. With a capacity of 74,140 seats, it is the largest club football stadium (and second-largest football stadium overall after Wembley Stadium) in the United Kingdom, and the eleventh-largest in Europe"@en ;
               rdfs:label "Old Trafford"@en .
 
@@ -867,7 +867,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Ole_Gunnar_Solskjær
 :Ole_Gunnar_Solskjær rdf:type owl:NamedIndividual ,
                               :Football_Coach ;
-                     :is_coach_of :Machester_United ;
+                     :is_coach_of :Manchester_United ;
                      rdfs:label "Ole Gunnar Solskjær"@en .
 
 
@@ -923,7 +923,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 :Premier_Ligue rdf:type owl:NamedIndividual ,
                         :Football_League ;
                :is_league_of :Chelsea ,
-                             :Machester_United ;
+                             :Manchester_United ;
                rdfs:label "Premier League"@en .
 
 
@@ -993,7 +993,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 :Santiago_Herrero rdf:type owl:NamedIndividual ,
                            :Club_Prop ,
                            :Football_Personal ;
-                  :is_personal_of :Machester_United .
+                  :is_personal_of :Manchester_United .
 
 
 ###  http://www.FCF.com/Serafin_Da-Silva
