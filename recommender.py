@@ -31,6 +31,104 @@ dummie_users = [
 
 def get_recommended_player(players, position):
 
+    weighted_players_matrix, user_scores = get_weighted_players_matrix(
+        players)
+    normalized_user_profile = get_normalized_user_profile(
+        weighted_players_matrix, user_scores)
+
+    # ? PREDICCIÓN SIN COLABORACIÓN
+    individual_recommendation = get_self_recommendations(
+        weighted_players_matrix, normalized_user_profile)
+    print(individual_recommendation)
+
+    # ? PREDICCIÓN CON COLABORACIÓN
+    normalized_dummies_profiles = []
+    dummies_scores = []
+    for scores in dummie_users:
+        weighted_dummie_matrix, dummie_scores = get_weighted_players_matrix(
+            scores)
+        normalized_dummies_profiles.append(
+            get_normalized_user_profile(weighted_dummie_matrix, dummie_scores))
+        dummies_scores.append(dummie_scores)
+
+    dummies_distances = [get_distance(
+        normalized_user_profile, profile) for profile in normalized_dummies_profiles]
+
+    colab_recommendation = get_colab_recommendations(
+        dummies_scores, dummies_distances)
+
+    best_recommendation = filter_recommendation(
+        colab_recommendation, players, position, method='max')
+
+    return best_recommendation
+
+
+def get_encoded_players_matrix():
+    players = queries.get_players()
+    df = pd.DataFrame(players, columns=[
+                      'label', 'position', 'foot', 'country', 'club'])
+    df.set_index('label', inplace=True)
+    df = pd.get_dummies(df, columns=['position', 'foot', 'country', 'club'])
+
+    return list(df.index.to_numpy()), list(df.to_numpy())
+
+
+def get_weighted_players_matrix(user_players, impute_scalar=1):
+    players_index, players_encoded = get_encoded_players_matrix()
+
+    weighted_players_encoded = []
+    user_scores = []
+
+    for i, player in enumerate(players_index):
+        current_player = user_players.get(player)
+        if current_player:
+            user_scores.append(current_player)
+            weighted_players_encoded.append(
+                [x * current_player for x in players_encoded[i]])
+        else:
+            user_scores.append(impute_scalar)
+            weighted_players_encoded.append(
+                [x * impute_scalar for x in players_encoded[i]])
+    return weighted_players_encoded, user_scores
+
+
+def get_normalized_user_profile(weighted_players_matrix, user_scores):
+    user_profile = list(np.sum(weighted_players_matrix, axis=0))
+    total_user_score = sum(user_scores)
+    weighted_user_profile = [x/total_user_score for x in user_profile]
+
+    # como las variables son categóricas, ya están normalizadas :D
+    return weighted_user_profile
+
+
+def get_distance(user_profile_x, user_profile_y):
+    np_x = np.array(user_profile_x)
+    np_y = np.array(user_profile_y)
+    return np.linalg.norm(np_y - np_x)
+
+
+def get_colab_recommendations(scores, distances):
+    user_recommendations = [None] * len(distances)
+    for i in range(len(distances)):
+        user_recommendations[i] = list(np.array(scores[i]) * distances[i])
+    players = queries.get_player_names()
+    total_recommendations = list(np.sum(user_recommendations, axis=0))
+    # entre más alto mejor, significa que el jugador está mejor calificado ponderado por los usuarios
+    return sorted([(total_recommendations[i]/sum(distances), players[i]) for i in range(len(players))], reverse=True)
+
+
+def get_self_recommendations(weighted_players_matrix, user_profile):
+    recommendations = []
+    players = queries.get_player_names()
+    for i in range(len(weighted_players_matrix)):
+        recommendations.append(
+            (get_distance(user_profile, weighted_players_matrix[i]), players[i]))
+    # entre más bajo mejor, significa que el jugador se distancia menos de lo que busca el usuario
+    return sorted(recommendations)
+
+
+def filter_recommendation(recommendations, user_players, position, method='max'):
+
     country_codes = defaultdict(lambda: '&#127758;', {
         'Colombia': '&#127464;&#127476;',
         'Spain': '&#127466;&#127480;',
@@ -51,68 +149,28 @@ def get_recommended_player(players, position):
         'Senegal': '&#127480;&#127475;'
     })
 
-    normalized_user_profile = get_normalized_user_profile(players)
-
-    normalized_dummies_profiles = [
-        get_normalized_user_profile(scores) for scores in dummie_users]
-    dummies_distances = [get_distance_between_users(
-        normalized_user_profile, profile) for profile in normalized_dummies_profiles]
-
-    # ? MOCK DATA
-    random_name = choice(queries.get_players())[0]
-    player = queries.get_player_by_name(random_name)
-
+    best_fit = ()
+    if method == 'max':
+        best_fit = (-1, '')
+        max_score = max(recommendations)[0]
+        for r in recommendations:
+            if r[1] not in list(user_players.keys()) and queries.get_player_by_name(r[1])[1] == position:
+                if r[0]/max_score > best_fit[0]:
+                    best_fit = (r[0]/max_score, r[1])
+    elif method == 'min':
+        best_fit = (100000, '')
+        min_score = min(recommendations)[0]
+        for r in recommendations:
+            if r[1] not in user_players and queries.get_player_by_name(r[1])[1] == position:
+                if r[0]/min_score < best_fit[0]:
+                    best_fit = (r[0]/min_score, r[1])
+    player_info = queries.get_player_by_name(best_fit[1])
     return ({
-        'label': player[0],
-        'position': player[1],
-        'foot': player[2],
-        'country': player[3],
-        'club': player[4],
-        'flag': country_codes[player[3]],
-    }, 69
+        'label': player_info[0],
+        'position': player_info[1],
+        'foot': player_info[2],
+        'country': player_info[3],
+        'club': player_info[4],
+        'flag': country_codes[player_info[3]],
+    }, best_fit[0]
     )
-
-
-def get_encoded_players_matrix():
-    players = queries.get_players()
-    df = pd.DataFrame(players, columns=[
-                      'label', 'position', 'foot', 'country', 'club'])
-    df.set_index('label', inplace=True)
-    df = pd.get_dummies(df, columns=['position', 'foot', 'country', 'club'])
-
-    return list(df.index.to_numpy()), list(df.to_numpy())
-
-
-def get_pondered_players_matrix(user_players: dict, impute_scalar):
-    players_index, players_encoded = get_encoded_players_matrix()
-
-    pondered_players_encoded = []
-    total_user_score = 0
-
-    for i, player in enumerate(players_index):
-        current_player = user_players.get(player)
-        if current_player:
-            total_user_score += current_player
-            pondered_players_encoded.append(
-                [x * current_player for x in players_encoded[i]])
-        else:
-            total_user_score += impute_scalar
-            pondered_players_encoded.append(
-                [x * impute_scalar for x in players_encoded[i]])
-    return pondered_players_encoded, total_user_score
-
-
-def get_normalized_user_profile(user_players, impute_scalar=1):
-    pondered_players_encoded, total_user_score = get_pondered_players_matrix(
-        user_players, impute_scalar)
-    user_profile = list(np.sum(pondered_players_encoded, axis=0))
-    pondered_user_profile = [x/total_user_score for x in user_profile]
-
-    # como las variables son categóricas, ya están normalizadas :D
-    return pondered_user_profile
-
-
-def get_distance_between_users(user_profile_x, user_profile_y):
-    np_x = np.array(user_profile_x)
-    np_y = np.array(user_profile_y)
-    return np.linalg.norm(np_y - np_x)

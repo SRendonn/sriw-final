@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    positions = ['Portero', 'Defensa', 'Mediocampista', 'Delantero']
+    positions = ['Goalkeeper', 'Defender', 'Middlefield', 'Forward']
     players = queries.get_player_names()
 
     return render_template('index.html', positions=positions, players=players)
@@ -31,6 +31,22 @@ def recommend_player():
         if position and len(players) == 5:
             recommended_player, value = recommender.get_recommended_player(
                 players=players, position=position)
-            return render_template('recommendation.html', recommended_player=recommended_player, value=value)
+            key_factors = {
+                'position': 0,
+                'country': 0,
+                'club': 0
+            }
+
+            if recommended_player['position'] == position:
+                key_factors['position'] = 1
+
+            for key in players.keys():
+                player = queries.get_player_by_name(key)
+                if player[3] == recommended_player['country']:
+                    key_factors['country'] += 1
+                if player[4] == recommended_player['club']:
+                    key_factors['club'] += 1
+
+            return render_template('recommendation.html', recommended_player=recommended_player, value=value, key_factors=key_factors)
         else:
             return redirect('/')

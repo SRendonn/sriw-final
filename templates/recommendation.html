@@ -23,24 +23,36 @@
           <div class="card">
             <div class="card-content">
               <p class="title is-2">
-                {{ recommended_player.label }} {% if value < 50 %}
+                {{ recommended_player.label }} {% if value < 0.5 %}
                 <span class="tag is-danger is-large is-rounded"
-                  >{{ value }}</span
+                  >{{ (value * 100)|int }}</span
                 >
-                {% elif value < 75 %}
+                {% elif value < 0.75 %}
                 <span class="tag is-warning is-large is-rounded"
-                  >{{ value }}</span
+                  >{{ (value * 100)|int }}</span
                 >
                 {% else %}
                 <span class="tag is-success is-large is-rounded"
-                  >{{ value }}</span
+                  >{{ (value * 100)|int }}</span
                 >
                 {% endif %}
               </p>
               <p class="subtitle">
                 <b>{{ recommended_player.position }}</b>
-                en
+                {% if key_factors['position'] %}
+                <span class="tag is-rounded is-small is-light is-primary">
+                  Esta es la posición que buscabas
+                </span>
+                {% endif %}
+              </p>
+              <p class="subtitle">
                 <b>{{ recommended_player.club }}</b>
+                {% if key_factors['club'] %}
+                <span class="tag is-rounded is-small is-light is-primary">
+                  {{ key_factors['club'] }} jugadores de tu plantel juegan en
+                  este equipo
+                </span>
+                {% endif %}
               </p>
               <div class="content">
                 <ul>
@@ -50,6 +62,12 @@
                       autoescape false %}{{ recommended_player.flag }}{%
                       endautoescape %}
                     </span>
+                    {% if key_factors['country'] %}
+                    <span class="pl-2 is-size-6"
+                      >{{ key_factors['country'] }} jugadores de tu plantel son
+                      de este país</span
+                    >
+                    {% endif %}
                   </li>
                   <li>
                     <span class="subtitle">
