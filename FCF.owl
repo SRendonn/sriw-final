@@ -298,8 +298,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                     :Football_Player ;
            :has_club :FC_Barcelona ;
            :has_main_foot :Right_Foot ;
-           :has_position :Goalkeeper ;
-           <http://www.FCF.com/has_birth_country> :España ;
+           :has_position :Forward ;
+           <http://www.FCF.com/has_birth_country> :Spain ;
            rdfs:label "Ansu Fati"@en .
 
 
@@ -332,8 +332,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                    :is_personal_of :Chelsea .
 
 
-###  http://www.FCF.com/Bruno_Fernandez
-:Bruno_Fernandez rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/Bruno_Fernandes
+:Bruno_Fernandes rdf:type owl:NamedIndividual ,
                           :Football_Player ;
                  :has_club :Machester_United ;
                  :has_main_foot :Right_Foot ;
@@ -355,7 +355,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
               :has_club :FC_Roma ;
               :has_main_foot :Left_Foot ;
               :has_position :Forward ;
-              <http://www.FCF.com/has_birth_country> :España ;
+              <http://www.FCF.com/has_birth_country> :Spain ;
               rdfs:label "Carles Perez"@en .
 
 
@@ -369,7 +369,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Cataluña
 :Cataluña rdf:type owl:NamedIndividual ,
                    :City ;
-          :has_country :España ;
+          :has_country :Spain ;
           :is_city_of :FC_Barcelona ;
           rdfs:label "Catalonia"@en .
 
@@ -427,8 +427,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
               rdfs:label "Dorlan Pabón"@en .
 
 
-###  http://www.FCF.com/España
-:España rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/Spain
+:Spain rdf:type owl:NamedIndividual ,
                  :Country ;
         :is_country_of :Cataluña ,
                        :Madrid ;
@@ -518,6 +518,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                          :Lionel_Messi ,
                          :Neymar_Jr ,
                          :Romelu_Lukaku ,
+                         :Ansu_Fati,
                          :Vinicius_Jr .
 
 
@@ -535,7 +536,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
               :has_club :FC_Barcelona ;
               :has_main_foot :Right_Foot ;
               :has_position :Defender ;
-              <http://www.FCF.com/has_birth_country> :España ;
+              <http://www.FCF.com/has_birth_country> :Spain ;
               rdfs:label "Gerard Piqué"@en .
 
 
@@ -550,8 +551,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Goalkeeper
 :Goalkeeper rdf:type owl:NamedIndividual ,
                      :Player_Position ;
-            :is_position_of :Ansu_Fati ,
-                            :Keylor_Navas ,
+            :is_position_of :Keylor_Navas ,
                             :Ter_Stegen .
 
 
@@ -746,7 +746,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                   :has_personal :Esteban_García ,
                                 :Santiago_Herrero ;
                   :has_stadium :Old_Trafford ;
-                  :is_club_of :Bruno_Fernandez ,
+                  :is_club_of :Bruno_Fernandes ,
                               :Cristiano_Ronaldo ,
                               :Harry_Maguire ;
                   rdfs:label "Manchester United F.C."@en .
@@ -755,7 +755,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Madrid
 :Madrid rdf:type owl:NamedIndividual ,
                  :City ;
-        :has_country :España ;
+        :has_country :Spain ;
         :is_city_of :Real_Madrid_CF ;
         rdfs:label "Madrid"@en .
 
@@ -807,7 +807,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Middlefield
 :Middlefield rdf:type owl:NamedIndividual ,
                       :Player_Position ;
-             :is_position_of :Bruno_Fernandez ,
+             :is_position_of :Bruno_Fernandes ,
                              :Jarlan_Barrera ,
                              :Mason_Mount ,
                              :Nicolas_Barella ,
@@ -915,7 +915,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
        :has_club :FC_Barcelona ;
        :has_main_foot :Right_Foot ;
        :has_position :Middlefield ;
-       <http://www.FCF.com/has_birth_country> :España ;
+       <http://www.FCF.com/has_birth_country> :Spain ;
        rdfs:label "Pedri"@en .
 
 
@@ -946,7 +946,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 :Right_Foot rdf:type owl:NamedIndividual ,
                      :Player_Main_Foot ;
             :is_main_foot_of :Ansu_Fati ,
-                             :Bruno_Fernandez ,
+                             :Bruno_Fernandes ,
                              :Cristiano_Ronaldo ,
                              :Dorlan_Pabon ,
                              :Felipe_Aguilar ,
@@ -1107,7 +1107,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Portugal
 <http://www.FCF.com/Portugal> rdf:type owl:NamedIndividual ,
                                      :Country ;
-                            <http://www.FCF.com/is_birth_country_of> :Bruno_Fernandez ,
+                            <http://www.FCF.com/is_birth_country_of> :Bruno_Fernandes ,
                                                                    :Cristiano_Ronaldo ;
                             rdfs:label "Portugal"@en .
 

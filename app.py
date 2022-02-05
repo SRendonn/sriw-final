@@ -1,7 +1,12 @@
 from collections import defaultdict
 from flask import Flask, render_template, request
+from rdflib import Graph, URIRef
 
 app = Flask(__name__)
+g = Graph()
+g.parse("FCF.owl", format="n3")
+fcf = "http://www.FCF.com/"
+g = sorted(g)
 
 
 @app.route("/")
@@ -67,3 +72,46 @@ def get_recommended_player(players, position):
         'flag': country_codes[player['country']],
         'value': player['value']
     }
+
+
+def get_players(positions = True):
+    player_helper: list[str] = []
+    for s, p, o in g:
+        # player fcf:has_position ?position
+        if str(p) == fcf + "has_position":
+            if type(positions) is bool:
+                player_helper.append((str(s), str(o)))
+            elif type(positions) is list and str(o) in positions:
+                player_helper.append((str(s), str(o)))
+
+    foot_helper = []
+    for s, p, o in g:
+        if str(s) in dict(player_helper):
+            player = next(tup for tup in player_helper if tup[0] == str(s))
+            # player fcf:has_main_foot ?main_foot
+            if str(p) == fcf + "has_main_foot":
+                foot_helper.append((*player, str(o)))
+
+    country_helper = []
+    for s, p, o in g:
+        if str(s) in dict(player_helper):
+            player = next(tup for tup in foot_helper if tup[0] == str(s))
+            # player fcf:has_birth_country ?birth_country
+            if str(p) == fcf + "has_birth_country":
+                country_helper.append((*player, str(o)))
+
+    club_helper = []
+    for s, p, o in g:
+        if str(s) in dict(player_helper):
+            player = next(tup for tup in country_helper if tup[0] == str(s))
+            # player fcf:has_club ?club
+            if str(p) == fcf + "has_club":
+                club_helper.append((*player, str(o)))
+
+
+    return club_helper
+
+
+print(get_players())
+
+
