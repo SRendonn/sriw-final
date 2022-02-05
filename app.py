@@ -16,7 +16,7 @@ def hello_world():
 @app.route('/recommend-player', methods=['POST'])
 def recommend_player():
     if request.method != 'POST':
-        return '', 405
+        return redirect('/')
     else:
         data = request.form
         players = {}

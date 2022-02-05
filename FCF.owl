@@ -522,8 +522,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                          :Vinicius_Jr .
 
 
-###  http://www.FCF.com/Francia
-:Francia rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/France
+:France rdf:type owl:NamedIndividual ,
                   :Country ;
          :is_country_of :Paris ;
          <http://www.FCF.com/is_birth_country_of> :Karim_Benzema ;
@@ -561,12 +561,12 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                :has_club :Machester_United ;
                :has_main_foot :Right_Foot ;
                :has_position :Defender ;
-               <http://www.FCF.com/has_birth_country> :Inglaterra ;
+               <http://www.FCF.com/has_birth_country> :England ;
                rdfs:label "Harry Maguire"@en .
 
 
-###  http://www.FCF.com/Inglaterra
-:Inglaterra rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/England
+:England rdf:type owl:NamedIndividual ,
                      :Country ;
             :is_country_of :Londres ,
                            :Manchester ;
@@ -589,8 +589,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                 rdfs:label "Inter Milan"@en .
 
 
-###  http://www.FCF.com/Italia
-:Italia rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/Italy
+:Italy rdf:type owl:NamedIndividual ,
                  :Country ;
         :is_country_of :Milan ,
                        :Roma ;
@@ -656,7 +656,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                :has_club :Real_Madrid_CF ;
                :has_main_foot :Right_Foot ;
                :has_position :Forward ;
-               <http://www.FCF.com/has_birth_country> :Francia ;
+               <http://www.FCF.com/has_birth_country> :France ;
                rdfs:label "Karim Benzema"@en .
 
 
@@ -725,7 +725,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Londres
 :Londres rdf:type owl:NamedIndividual ,
                   :City ;
-         :has_country :Inglaterra ;
+         :has_country :England ;
          :is_city_of :Chelsea ;
          rdfs:label "London"@en .
 
@@ -763,7 +763,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Manchester
 :Manchester rdf:type owl:NamedIndividual ,
                      :City ;
-            :has_country :Inglaterra ;
+            :has_country :England ;
             :is_city_of :Machester_United ;
             rdfs:label "Manchester"@en .
 
@@ -785,7 +785,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
              :has_club :Chelsea ;
              :has_main_foot :Right_Foot ;
              :has_position :Middlefield ;
-             <http://www.FCF.com/has_birth_country> :Inglaterra ;
+             <http://www.FCF.com/has_birth_country> :England ;
              rdfs:label "Mason Mount"@en .
 
 
@@ -831,7 +831,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Milan
 :Milan rdf:type owl:NamedIndividual ,
                 :City ;
-       :has_country :Italia ;
+       :has_country :Italy ;
        :is_city_of :Inter_De_Milan ;
        rdfs:label "Milan"@en .
 
@@ -852,7 +852,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                  :has_club :Inter_De_Milan ;
                  :has_main_foot :Right_Foot ;
                  :has_position :Middlefield ;
-                 <http://www.FCF.com/has_birth_country> :Italia ;
+                 <http://www.FCF.com/has_birth_country> :Italy ;
                  rdfs:label "Nicolò Barella"@en .
 
 
@@ -897,7 +897,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Paris
 :Paris rdf:type owl:NamedIndividual ,
                 :City ;
-       :has_country :Francia ;
+       :has_country :France ;
        :is_city_of :PSG ;
        rdfs:label "Paris"@en .
 
@@ -966,7 +966,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 ###  http://www.FCF.com/Roma
 :Roma rdf:type owl:NamedIndividual ,
                :City ;
-      :has_country :Italia ;
+      :has_country :Italy ;
       :is_city_of :FC_Roma ;
       rdfs:label "Rome"@en .
 
