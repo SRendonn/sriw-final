@@ -60,7 +60,18 @@ def get_player_by_name(name, pretty=True):
                 club_helper = (*country_helper, str(o))
             break
 
-    return club_helper
+    league_helper = ()
+    for s, p, o in g:
+        club = prettify(str(s)) if pretty else str(s)
+        if str(p) == fcf + "has_league":
+            if club_helper[4] == club:
+                if pretty:
+                    league_helper = ((*club_helper, prettify(str(o))))
+                else:
+                    league_helper.append((*club_helper, str(o)))
+                break
+
+    return league_helper
 
 
 def get_players(pretty=True):
@@ -109,7 +120,18 @@ def get_players(pretty=True):
                 else:
                     club_helper.append((*player, str(o)))
 
-    return club_helper
+    league_helper = []
+    for s, p, o in g:
+        club = prettify(str(s)) if pretty else str(s)
+        if str(p) == fcf + "has_league":
+            for player in club_helper:
+                if player[4] == club:
+                    if pretty:
+                        league_helper.append((*player, prettify(str(o))))
+                    else:
+                        league_helper.append((*player, str(o)))
+
+    return league_helper
 
 
 def get_players_by_position(position, pretty=True):
@@ -159,4 +181,16 @@ def get_players_by_position(position, pretty=True):
                     club_helper.append((*player, prettify(str(o))))
                 else:
                     club_helper.append((*player, str(o)))
-    return club_helper
+
+    league_helper = []
+    for s, p, o in g:
+        club = prettify(str(s)) if pretty else str(s)
+        if str(p) == fcf + "has_league":
+            for player in club_helper:
+                if player[4] == club:
+                    if pretty:
+                        league_helper.append((*player, prettify(str(o))))
+                    else:
+                        league_helper.append((*player, str(o)))
+
+    return league_helper

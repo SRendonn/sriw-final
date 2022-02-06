@@ -34,7 +34,13 @@ def recommend_player():
             key_factors = {
                 'position': 0,
                 'country': 0,
-                'club': 0
+                'club': 0,
+                'league': 0
+            }
+            tooltip_factors = {
+                'country': [],
+                'club': [],
+                'league': []
             }
 
             if recommended_player['position'] == position:
@@ -44,9 +50,14 @@ def recommend_player():
                 player = queries.get_player_by_name(key)
                 if player[3] == recommended_player['country']:
                     key_factors['country'] += 1
+                    tooltip_factors['country'].append(player[0])
                 if player[4] == recommended_player['club']:
                     key_factors['club'] += 1
+                    tooltip_factors['club'].append(player[0])
+                if player[5] == recommended_player['league']:
+                    key_factors['league'] += 1
+                    tooltip_factors['league'].append(player[0])
 
-            return render_template('recommendation.html', recommended_player=recommended_player, value=value, key_factors=key_factors)
+            return render_template('recommendation.html', recommended_player=recommended_player, value=value, key_factors=key_factors, tooltip_factors=tooltip_factors)
         else:
             return redirect('/')

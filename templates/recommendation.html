@@ -10,7 +10,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.2.0/dist/bulma-tooltip.min.css"
     />
     <title>Sistema recomendador</title>
   </head>
@@ -48,9 +48,23 @@
               <p class="subtitle">
                 <b>{{ recommended_player.club }}</b>
                 {% if key_factors['club'] %}
-                <span class="tag is-rounded is-small is-light is-primary">
+                <span
+                  data-tooltip="{{ ', '.join(tooltip_factors['club']) }}"
+                  class="tag is-rounded is-small is-light is-primary"
+                >
                   {{ key_factors['club'] }} jugador(es) de tu plantel juegan en
                   este equipo
+                </span>
+                {% endif %}
+                <span> en </span>
+                <b>{{ recommended_player.league }}</b>
+                {% if key_factors['league'] %}
+                <span
+                  data-tooltip="{{ ', '.join(tooltip_factors['league']) }}"
+                  class="tag is-rounded is-small is-light is-primary"
+                >
+                  {{ key_factors['league'] }} jugador(es) de tu plantel juegan
+                  en esta liga
                 </span>
                 {% endif %}
               </p>
@@ -63,7 +77,9 @@
                       endautoescape %}
                     </span>
                     {% if key_factors['country'] %}
-                    <span class="tag is-rounded is-small is-light is-primary"
+                    <span
+                      data-tooltip="{{ ', '.join(tooltip_factors['country']) }}"
+                      class="tag is-rounded is-small is-light is-primary"
                       >{{ key_factors['country'] }} jugador(es) de tu plantel
                       son de este país</span
                     >

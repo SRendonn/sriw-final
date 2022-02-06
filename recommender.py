@@ -39,7 +39,6 @@ def get_recommended_player(players, position):
     # ? PREDICCIÓN SIN COLABORACIÓN
     individual_recommendation = get_self_recommendations(
         weighted_players_matrix, normalized_user_profile)
-    print(individual_recommendation)
 
     # ? PREDICCIÓN CON COLABORACIÓN
     normalized_dummies_profiles = []
@@ -66,9 +65,10 @@ def get_recommended_player(players, position):
 def get_encoded_players_matrix():
     players = queries.get_players()
     df = pd.DataFrame(players, columns=[
-                      'label', 'position', 'foot', 'country', 'club'])
+                      'label', 'position', 'foot', 'country', 'club', 'league'])
     df.set_index('label', inplace=True)
-    df = pd.get_dummies(df, columns=['position', 'foot', 'country', 'club'])
+    df = pd.get_dummies(
+        df, columns=['position', 'foot', 'country', 'club', 'league'])
 
     return list(df.index.to_numpy()), list(df.to_numpy())
 
@@ -171,6 +171,7 @@ def filter_recommendation(recommendations, user_players, position, method='max')
         'foot': player_info[2],
         'country': player_info[3],
         'club': player_info[4],
+        'league': player_info[5],
         'flag': country_codes[player_info[3]],
     }, best_fit[0]
     )

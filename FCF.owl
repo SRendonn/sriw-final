@@ -379,7 +379,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                   :Football_Club ;
          :has_city :Londres ;
          :has_coach :Thomas_Tuchel ;
-         :has_league :Premier_Ligue ;
+         :has_league :Premier_League ;
          :has_personal :Bonifacio_de_Haro ,
                        :Oliver_Jimenez ;
          :has_stadium :Stamford_Bridge ;
@@ -742,7 +742,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                            :Football_Club ;
                   :has_city :Manchester ;
                   :has_coach :Ole_Gunnar_Solskjær ;
-                  :has_league :Premier_Ligue ;
+                  :has_league :Premier_League ;
                   :has_personal :Esteban_García ,
                                 :Santiago_Herrero ;
                   :has_stadium :Old_Trafford ;
@@ -919,8 +919,8 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
        rdfs:label "Pedri"@en .
 
 
-###  http://www.FCF.com/Premier_Ligue
-:Premier_Ligue rdf:type owl:NamedIndividual ,
+###  http://www.FCF.com/Premier_League
+:Premier_League rdf:type owl:NamedIndividual ,
                         :Football_League ;
                :is_league_of :Chelsea ,
                              :Manchester_United ;
