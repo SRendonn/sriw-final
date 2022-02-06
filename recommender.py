@@ -14,7 +14,7 @@ dummie_users = [
     },
     {
         'Harry Maguire': 5,
-        'Pedri': 8,
+        'Pedri': 3,
         'Keylor Navas': 8,
         'Romelo Lukaku': 7,
         'Lautaru Martinez': 7
@@ -26,6 +26,12 @@ dummie_users = [
         'Bruno Fernandes': 9,
         'Carles Perez': 5
     },
+    {
+        'Ansu Fati': 3,
+        'Cristiano Ronaldo': 10,
+        'Dorlan Pabon': 2,
+        'Bruno Fernandes': 9,
+    },
 ]
 
 
@@ -36,28 +42,26 @@ def get_recommended_player(players, position):
     normalized_user_profile = get_normalized_user_profile(
         weighted_players_matrix, user_scores)
 
-    # ? PREDICCIÓN SIN COLABORACIÓN
-    individual_recommendation = get_self_recommendations(
-        weighted_players_matrix, normalized_user_profile)
-
     # ? PREDICCIÓN CON COLABORACIÓN
     normalized_dummies_profiles = []
     dummies_scores = []
+    individual_dummies_recommendation = []
     for scores in dummie_users:
         weighted_dummie_matrix, dummie_scores = get_weighted_players_matrix(
             scores)
-        normalized_dummies_profiles.append(
-            get_normalized_user_profile(weighted_dummie_matrix, dummie_scores))
+        normalized_dummy_profile = get_normalized_user_profile(weighted_dummie_matrix, dummie_scores)
+        normalized_dummies_profiles.append(normalized_dummy_profile)
         dummies_scores.append(dummie_scores)
+        individual_dummies_recommendation.append(get_self_recommendations(weighted_dummie_matrix, normalized_dummy_profile))
+
 
     dummies_distances = [get_distance(
         normalized_user_profile, profile) for profile in normalized_dummies_profiles]
 
-    colab_recommendation = get_colab_recommendations(
-        dummies_scores, dummies_distances)
-
+    weighted_recommendation = get_weighted_recommendation(individual_dummies_recommendation, dummies_distances)
     best_recommendation = filter_recommendation(
-        colab_recommendation, players, position, method='max')
+        weighted_recommendation, players, position, method='min')
+
 
     return best_recommendation
 
@@ -73,7 +77,7 @@ def get_encoded_players_matrix():
     return list(df.index.to_numpy()), list(df.to_numpy())
 
 
-def get_weighted_players_matrix(user_players, impute_scalar=1):
+def get_weighted_players_matrix(user_players, impute_scalar=0):
     players_index, players_encoded = get_encoded_players_matrix()
 
     weighted_players_encoded = []
@@ -107,25 +111,17 @@ def get_distance(user_profile_x, user_profile_y):
     return np.linalg.norm(np_y - np_x)
 
 
-def get_colab_recommendations(scores, distances):
-    user_recommendations = [None] * len(distances)
-    for i in range(len(distances)):
-        user_recommendations[i] = list(np.array(scores[i]) * distances[i])
-    players = queries.get_player_names()
-    total_recommendations = list(np.sum(user_recommendations, axis=0))
-    # entre más alto mejor, significa que el jugador está mejor calificado ponderado por los usuarios
-    return sorted([(total_recommendations[i]/sum(distances), players[i]) for i in range(len(players))], reverse=True)
-
-
-def get_self_recommendations(weighted_players_matrix, user_profile):
+def get_self_recommendations(weighted_players_matrix, user_profile, sort=True):
     recommendations = []
     players = queries.get_player_names()
     for i in range(len(weighted_players_matrix)):
         recommendations.append(
             (get_distance(user_profile, weighted_players_matrix[i]), players[i]))
     # entre más bajo mejor, significa que el jugador se distancia menos de lo que busca el usuario
-    return sorted(recommendations)
-
+    if sort:
+        return sorted(recommendations)
+    else:
+        return recommendations
 
 def filter_recommendation(recommendations, user_players, position, method='max'):
 
@@ -175,3 +171,18 @@ def filter_recommendation(recommendations, user_players, position, method='max')
         'flag': country_codes[player_info[3]],
     }, best_fit[0]
     )
+
+def get_weighted_recommendation(user_recomendations, user_distances):
+    index = [x[1] for x in user_recomendations[0]]
+    weighted_recommendation = []
+    for i in range(len(user_recomendations)):
+        user_values = np.array([x[0] for x in user_recomendations[i]])
+        user_distance = (user_distances[i] - min(user_distances))/(max(user_distances) - min(user_distances))
+        weighted_recommendation.append(user_values * (1-user_distance))
+    weight_recommendation = list(np.sum(weighted_recommendation, axis=0))
+    results = []
+    for i in range(len(index)):
+        results.append((weight_recommendation[i], index[i]))
+    return results
+    
+
