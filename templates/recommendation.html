@@ -20,26 +20,28 @@
       <div class="container">
         <h1 class="title">Tu recomendación:</h1>
         <div class="content">
-          <div class="card">
+          {% for recommended_player in recommended_players %}
+          <div class="card mt-4">
             <div class="card-content">
               <p class="title is-2">
-                {{ recommended_player.label }} {% if value < 0.5 %}
+                {{ recommended_player.label }} {% if values[loop.index0] < 0.5
+                %}
                 <span class="tag is-danger is-large is-rounded"
-                  >{{ (value * 100)|int }}</span
+                  >{{ (values[loop.index0] * 100)|int }}</span
                 >
-                {% elif value < 0.75 %}
+                {% elif values[loop.index0] < 0.75 %}
                 <span class="tag is-warning is-large is-rounded"
-                  >{{ (value * 100)|int }}</span
+                  >{{ (values[loop.index0] * 100)|int }}</span
                 >
                 {% else %}
                 <span class="tag is-success is-large is-rounded"
-                  >{{ (value * 100)|int }}</span
+                  >{{ (values[loop.index0] * 100)|int }}</span
                 >
                 {% endif %}
               </p>
               <p class="subtitle">
                 <b>{{ recommended_player.position }}</b>
-                {% if key_factors['position'] %}
+                {% if key_factors_list[loop.index0]['position'] %}
                 <span class="tag is-rounded is-small is-light is-primary">
                   Esta es la posición que buscabas
                 </span>
@@ -47,24 +49,24 @@
               </p>
               <p class="subtitle">
                 <b>{{ recommended_player.club }}</b>
-                {% if key_factors['club'] %}
+                {% if key_factors_list[loop.index0]['club'] %}
                 <span
-                  data-tooltip="{{ ', '.join(tooltip_factors['club']) }}"
+                  data-tooltip="{{ ', '.join(tooltip_factors_list[loop.index0]['club']) }}"
                   class="tag is-rounded is-small is-light is-primary"
                 >
-                  {{ key_factors['club'] }} jugador(es) de tu plantel juegan en
-                  este equipo
+                  {{ key_factors_list[loop.index0]['club'] }} jugador(es) de tu
+                  plantel juegan en este equipo
                 </span>
                 {% endif %}
                 <span> en </span>
                 <b>{{ recommended_player.league }}</b>
-                {% if key_factors['league'] %}
+                {% if key_factors_list[loop.index0]['league'] %}
                 <span
-                  data-tooltip="{{ ', '.join(tooltip_factors['league']) }}"
+                  data-tooltip="{{ ', '.join(tooltip_factors_list[loop.index0]['league']) }}"
                   class="tag is-rounded is-small is-light is-primary"
                 >
-                  {{ key_factors['league'] }} jugador(es) de tu plantel juegan
-                  en esta liga
+                  {{ key_factors_list[loop.index0]['league'] }} jugador(es) de
+                  tu plantel juegan en esta liga
                 </span>
                 {% endif %}
               </p>
@@ -76,12 +78,12 @@
                       autoescape false %}{{ recommended_player.flag }}{%
                       endautoescape %}
                     </span>
-                    {% if key_factors['country'] %}
+                    {% if key_factors_list[loop.index0]['country'] %}
                     <span
-                      data-tooltip="{{ ', '.join(tooltip_factors['country']) }}"
+                      data-tooltip="{{ ', '.join(tooltip_factors_list[loop.index0]['country']) }}"
                       class="tag is-rounded is-small is-light is-primary"
-                      >{{ key_factors['country'] }} jugador(es) de tu plantel
-                      son de este país</span
+                      >{{ key_factors_list[loop.index0]['country'] }}
+                      jugador(es) de tu plantel son de este país</span
                     >
                     {% endif %}
                   </li>
@@ -97,6 +99,7 @@
               <a href="/" class="card-footer-item">Volver</a>
             </footer>
           </div>
+          {% endfor %}
         </div>
       </div>
     </section>

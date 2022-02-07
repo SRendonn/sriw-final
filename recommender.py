@@ -168,44 +168,31 @@ def filter_recommendation(recommendations, user_players, position, method='max')
     })
     ideal_attrs = get_ideal_attrs(user_players, position)
 
-    best_fit = ()
+    best_fits = []
     if method == 'max':
-        best_fit = (-1, '')
-        max_score = max(recommendations)[0]
         for r in recommendations:
             if r[1] not in list(user_players.keys()) and queries.get_player_by_name(r[1])[1] == position:
-                if r[0]/max_score >= best_fit[0]:
-                    best_fit = (r[0]/max_score, r[1])
+                best_fits.append((r[0], r[1]))
     elif method == 'min':
-        best_fit = (100000, '')
-        min_score = min(recommendations)[0]
         for r in recommendations:
             if r[1] not in user_players and queries.get_player_by_name(r[1])[1] == position:
-                if r[0]/min_score <= best_fit[0]:
-                    if not best_fit[1]:
-                        best_fit = (r[0]/min_score, r[1])
-                    else:
-                        p1 = queries.get_player_by_name(best_fit[1])
-                        p2 = queries.get_player_by_name(r[1])
-                        p1_counter = int(ideal_attrs['country'] == p1[3]) + int(
-                            ideal_attrs['club'] == p1[4]) + int(ideal_attrs['league'] == p1[5])
-                        p2_counter = int(ideal_attrs['country'] == p2[3]) + int(
-                            ideal_attrs['club'] == p2[4]) + int(ideal_attrs['league'] == p2[5])
-                        if p2_counter > p1_counter:
-                            best_fit = (r[0]/min_score, r[1])
+                best_fits.append((r[0], r[1]))
 
-    player_info = queries.get_player_by_name(best_fit[1])
+    players_info = [queries.get_player_by_name(p[1]) for p in best_fits]
 
-    return ({
-        'label': player_info[0],
-        'position': player_info[1],
-        'foot': player_info[2],
-        'country': player_info[3],
-        'club': player_info[4],
-        'league': player_info[5],
-        'flag': country_codes[player_info[3]],
-    }, best_fit[0]
-    )
+    result = [{
+        'label': players_info[i][0],
+        'position': players_info[i][1],
+        'foot': players_info[i][2],
+        'country': players_info[i][3],
+        'club': players_info[i][4],
+        'league': players_info[i][5],
+        'flag': country_codes[players_info[i][3]],
+    } for i in range(len(players_info))]
+
+    values = [1 - best_fits[i][0] for i in range(len(best_fits))]
+
+    return result, values
 
 
 def get_weighted_recommendation(user_recomendations, user_distances):
@@ -219,6 +206,6 @@ def get_weighted_recommendation(user_recomendations, user_distances):
     total_recommendation = list(np.sum(weighted_recommendation, axis=0))
     results = []
     for i in range(len(index)):
-        results.append((total_recommendation[i], index[i]))
-    print(sorted(results))
+        results.append(((total_recommendation[i] - min(total_recommendation))/(
+            max(total_recommendation) - min(total_recommendation)), index[i]))
     return sorted(results)
