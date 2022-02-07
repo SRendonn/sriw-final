@@ -620,7 +620,6 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                           :David_Alaba ,
                           :Felipe ,
                           :Felipe_Aguilar ,
-                          :France ,
                           :Gerard_Pique ,
                           :Harry_Maguire ,
                           :Jesus_Navas ,
@@ -801,10 +800,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 
 ###  http://www.FCF.com/France
 :France rdf:type owl:NamedIndividual ,
-                 :Country ,
-                 :Football_Player ;
-        :has_main_foot :Right_Foot ;
-        :has_position :Defender ;
+                 :Country ;
         :is_birth_country_of :Adrien_Rabiot ,
                              :Adrien_Truffert ,
                              :Ben_Yedder ,
@@ -902,9 +898,7 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
 
 ###  http://www.FCF.com/Italy
 :Italy rdf:type owl:NamedIndividual ,
-                :Country ,
-                :Football_Player ;
-       :has_main_foot :Left_Foot ;
+                :Country ;
        :is_birth_country_of :Alessandro_Citi ,
                             :Ciro_Inmobile ,
                             :Federico_Chiesa ,
@@ -1072,7 +1066,6 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                             :David_Alaba ,
                             :David_Silva ,
                             :Fekir ,
-                            :Italy ,
                             :Jarlan_Barrera ,
                             :Lionel_Messi ,
                             :Marcelo ,
@@ -1583,7 +1576,6 @@ owl:topObjectProperty owl:inverseOf owl:topObjectProperty ;
                              :Felipe ,
                              :Felipe_Aguilar ,
                              :Flavien_Tait ,
-                             :France ,
                              :Gerard_Pique ,
                              :Grabiel_Jesus ,
                              :Harry_Maguire ,
