@@ -169,21 +169,22 @@ def filter_recommendation(recommendations, user_players, position, method='max')
     ideal_attrs = get_ideal_attrs(user_players, position)
 
     best_fit = ()
+    min_score = min(recommendations)[0]
+    max_score = max(recommendations)[0]
+
     if method == 'max':
         best_fit = (-1, '')
-        max_score = max(recommendations)[0]
         for r in recommendations:
             if r[1] not in list(user_players.keys()) and queries.get_player_by_name(r[1])[1] == position:
-                if r[0]/max_score >= best_fit[0]:
-                    best_fit = (r[0]/max_score, r[1])
+                if r[0] >= best_fit[0]:
+                    best_fit = (r[0], r[1])
     elif method == 'min':
         best_fit = (100000, '')
-        min_score = min(recommendations)[0]
         for r in recommendations:
             if r[1] not in user_players and queries.get_player_by_name(r[1])[1] == position:
-                if r[0]/min_score <= best_fit[0]:
+                if r[0] <= best_fit[0]:
                     if not best_fit[1]:
-                        best_fit = (r[0]/min_score, r[1])
+                        best_fit = (r[0], r[1])
                     else:
                         p1 = queries.get_player_by_name(best_fit[1])
                         p2 = queries.get_player_by_name(r[1])
@@ -192,7 +193,7 @@ def filter_recommendation(recommendations, user_players, position, method='max')
                         p2_counter = int(ideal_attrs['country'] == p2[3]) + int(
                             ideal_attrs['club'] == p2[4]) + int(ideal_attrs['league'] == p2[5])
                         if p2_counter > p1_counter:
-                            best_fit = (r[0]/min_score, r[1])
+                            best_fit = (r[0], r[1])
 
     player_info = queries.get_player_by_name(best_fit[1])
 
@@ -204,7 +205,7 @@ def filter_recommendation(recommendations, user_players, position, method='max')
         'club': player_info[4],
         'league': player_info[5],
         'flag': country_codes[player_info[3]],
-    }, best_fit[0]
+    }, (best_fit[0] - min_score)/(max_score - min_score)
     )
 
 
