@@ -221,5 +221,4 @@ def get_weighted_recommendation(user_recomendations, user_distances):
     results = []
     for i in range(len(index)):
         results.append((total_recommendation[i], index[i]))
-    print(sorted(results))
     return sorted(results)

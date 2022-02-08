@@ -27,7 +27,7 @@
                 <span class="tag is-danger is-large is-rounded"
                   >{{ ((1 - value) * 100)|int }}</span
                 >
-                {% elif value < 0.75 %}
+                {% elif (1 - value) < 0.75 %}
                 <span class="tag is-warning is-large is-rounded"
                   >{{ ((1 - value) * 100)|int }}</span
                 >
